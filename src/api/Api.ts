@@ -5,7 +5,7 @@ import { tokenAuthSelector } from '../store/selectors/auth-selectors';
 
 // eslint-disable-next-line import/no-mutable-exports
 let instance: Axios = null;
-
+// test test/
 export const initApi = () => {
   instance = axios.create({
     baseURL: 'https://hackaton-server.azurewebsites.net/api',
