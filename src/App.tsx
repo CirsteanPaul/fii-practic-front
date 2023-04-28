@@ -15,6 +15,7 @@ const App = () => {
   const isReady = useAsyncOnMount(loadServices);
   useModalIsOpen();
   const dispatch = useAppDispatch();
+  console.log('tst2');
 
   if (!isReady) {
     return null;
