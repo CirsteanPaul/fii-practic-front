@@ -2,13 +2,17 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface AppState {
-  isModalOpen: boolean;
-  isLoading: boolean;
+  isAppModalOpen: boolean;
+  isAppLoading: boolean;
+  isAppScrolled: boolean;
+  appStateWidth: number;
 }
 
 const initialState: AppState = {
-  isModalOpen: false,
-  isLoading: false,
+  isAppModalOpen: false,
+  isAppLoading: false,
+  isAppScrolled: false,
+  appStateWidth: 0,
 };
 
 const appSlice = createSlice({
@@ -16,13 +20,19 @@ const appSlice = createSlice({
   initialState,
   reducers: {
     setModalOpenAction(state, action: PayloadAction<boolean>) {
-      state.isModalOpen = action.payload;
+      state.isAppModalOpen = action.payload;
     },
     setIsLoadingAction(state, action: PayloadAction<boolean>) {
-      state.isLoading = action.payload;
+      state.isAppLoading = action.payload;
+    },
+    setAppIsScrolledAction(state, action: PayloadAction<boolean>) {
+      state.isAppScrolled = action.payload;
+    },
+    setAppWidthAction(state, action: PayloadAction<number>) {
+      state.appStateWidth = action.payload;
     },
   },
 });
 
-export const { setModalOpenAction, setIsLoadingAction } = appSlice.actions;
+export const { setModalOpenAction, setIsLoadingAction, setAppIsScrolledAction, setAppWidthAction } = appSlice.actions;
 export default appSlice.reducer;

@@ -16,7 +16,7 @@ export const loginAuthActionAsync = createAsyncThunk<void, ILoginPostRequest, { 
   thunkApi.dispatch(setLoginErrorAuthAction(false));
   thunkApi.dispatch(setLoadingAuthAction(true));
   try {
-    const response = await loginPostRequest({ username: data.username, password: data.password });
+    const response = await loginPostRequest(data);
     if (response?.token) {
       thunkApi.dispatch(setTokenAuthAction(response.token));
       setItem(TOKEN_AUTH_LOGIN, response.token);
@@ -39,7 +39,7 @@ export const registerAuthActionAsync = createAsyncThunk<void, IRegisterPostReque
   thunkApi.dispatch(setLoginErrorAuthAction(false));
   thunkApi.dispatch(setLoadingAuthAction(true));
   try {
-    await registerPostRequest({ username: data.username, password: data.password, email: data.email });
+    await registerPostRequest(data);
   } catch (err) {
     if (err instanceof ApiException) {
       alertService.errorAlert({ title: REGISTER_FAILED__TITLE, message: err.data.detail });
