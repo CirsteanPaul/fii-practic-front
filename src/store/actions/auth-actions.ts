@@ -21,6 +21,7 @@ export const loginAuthActionAsync = createAsyncThunk<void, ILoginPostRequest, { 
       thunkApi.dispatch(setTokenAuthAction(response.token));
       setItem(TOKEN_AUTH_LOGIN, response.token);
       thunkApi.dispatch(setStateAuthAction(true));
+      alertService.successAlert({ title: 'Login successully', message: null });
     } else {
       alertService.errorAlert({ title: LOGIN_FAILED__TITLE, message: 'Error from session, please reload!' });
       thunkApi.dispatch(setLoginErrorAuthAction(true));

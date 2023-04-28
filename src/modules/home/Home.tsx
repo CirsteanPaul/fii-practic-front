@@ -7,9 +7,9 @@ import { loginAuthActionAsync, registerAuthActionAsync } from '../../store/actio
 const Home = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const registerData = {
-    username: 'alinasdasd',
+    username: 'alinad',
     password: 'lala',
-    email: 'lala',
+    email: 'lala@gmali.com',
   };
   const handleLogin = () => {
     const loginData: ILoginPostRequest = {
