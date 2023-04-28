@@ -1,7 +1,7 @@
 import autoLogin from './auth-service';
 
 const loadServices = async (): Promise<void> => {
-  const services = [autoLogin()];
+  autoLogin();
 };
 
 export default loadServices;
