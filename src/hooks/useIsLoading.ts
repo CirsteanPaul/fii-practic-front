@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from './store-hooks';
 
 /**
  * This hook will change the state in appStateSlice
- * When a general loading is added here should be added as well
+ * When a general loading is added it should be added here as well
  * Exactly like isAuthLoading and in if statement just a || operator
  */
 const useIsLoading = (): void => {

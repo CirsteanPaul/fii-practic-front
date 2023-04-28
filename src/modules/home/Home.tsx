@@ -1,7 +1,7 @@
 import React from 'react';
 import { HomeContainer } from './styles';
 import { useAppDispatch } from '../../hooks/store-hooks';
-import ILoginPostRequest from '../../types/auth/ILoginRequest';
+import ILoginPostRequest from '../../types/auth/ILoginPostRequest';
 import { loginAuthActionAsync, registerAuthActionAsync } from '../../store/actions/auth-actions';
 
 const Home = (): JSX.Element => {
@@ -9,7 +9,7 @@ const Home = (): JSX.Element => {
   const registerData = {
     username: 'alinad',
     password: 'lala',
-    email: 'lala@gmali.com',
+    email: 'lalam',
   };
   const handleLogin = () => {
     const loginData: ILoginPostRequest = {
