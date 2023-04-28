@@ -1,15 +1,15 @@
 import React from 'react';
 import { HomeContainer } from './styles';
 import { useAppDispatch } from '../../hooks/store-hooks';
-import ILoginPostRequest from '../../types/auth/ILoginRequest';
+import ILoginPostRequest from '../../types/auth/ILoginPostRequest';
 import { loginAuthActionAsync, registerAuthActionAsync } from '../../store/actions/auth-actions';
 
 const Home = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const registerData = {
-    username: 'alinasdasd',
+    username: 'alinad',
     password: 'lala',
-    email: 'lala',
+    email: 'lalam',
   };
   const handleLogin = () => {
     const loginData: ILoginPostRequest = {

@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import ILoginPostResponse from '../../types/auth/ILoginPostResponse';
-import ILoginPostRequest from '../../types/auth/ILoginRequest';
+import ILoginPostRequest from '../../types/auth/ILoginPostRequest';
 import { getApi } from '../Api';
 import IRegisterPostRequest from '../../types/auth/IRegisterPostRequest';
 import IRegisterPostResponse from '../../types/auth/IRegisterPostResponse';
