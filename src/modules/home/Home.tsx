@@ -9,7 +9,7 @@ const Home = (): JSX.Element => {
   const registerData = {
     username: 'alinasdasd',
     password: 'lala',
-    email: 'lala@',
+    email: 'lala',
   };
   const handleLogin = () => {
     const loginData: ILoginPostRequest = {
