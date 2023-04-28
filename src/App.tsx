@@ -6,6 +6,7 @@ import './theme/reset.css';
 const App = () => {
   const isReady = useAsyncOnMount(loadServices);
 
+  console.log('denis');
   if (!isReady) {
     return null;
   }
