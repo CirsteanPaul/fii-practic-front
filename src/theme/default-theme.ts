@@ -15,6 +15,7 @@ const defaultTheme: ITheme = {
     darkBlue: '#191635',
     lighterGray: '#737B7B',
     lightGray: '#5F6868',
+    veryLightGray: '#FAFAFA',
     delimitatorGray: '#F4F4F4',
     violet: '#DB48FF',
     lightBlue: '#579AFF',
@@ -30,6 +31,9 @@ const defaultTheme: ITheme = {
   },
   fonts: {
     normal: 'Outfit',
+    interLight: 'Inter Light',
+    interRegular: 'Inter Regular',
+    interBold: 'Inter Bold',
   },
   fontSize: {
     medium: '22px',

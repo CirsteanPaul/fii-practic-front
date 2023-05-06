@@ -6,6 +6,7 @@ import Header from '../components/header';
 import useModalIsOpen from '../hooks/useModallsOpen';
 import useEmitters from '../hooks/useEmitters';
 import Home from '../modules/home';
+import Leaderboard from '../modules/components/leaderboard';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -17,6 +18,7 @@ const AppRouter = () => {
       <Header />
       <Routes>
         <Route index element={<Home />} />
+        <Route path="leaderboard" element={<Leaderboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

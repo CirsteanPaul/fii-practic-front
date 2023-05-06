@@ -10,6 +10,7 @@ type colors = {
   darkBlue: string;
   lighterGray: string;
   lightGray: string;
+  veryLightGray: string;
   delimitatorGray: string;
   violet: string;
   lightBlue: string;
@@ -40,6 +41,9 @@ type fontSize = {
 };
 type fonts = {
   normal: string;
+  interLight: string;
+  interRegular: string;
+  interBold: string;
 };
 
 interface ITheme {
