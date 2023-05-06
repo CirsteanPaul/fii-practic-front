@@ -7,6 +7,10 @@ export const LeaderboardPage = styled.main`
   background-color: ${props => props.theme.colors.backgroundGray};
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1000px) {
+    width: 100vw;
+  }
 `;
 
 export const LeaderboardContainer = styled.div`
@@ -128,4 +132,11 @@ export const UserButton = styled.img`
     cursor: pointer;
     opacity: 0.7;
   }
+`;
+
+export const imageReplacement = styled.div`
+  background-color: ${props => props.theme.colors.backgroundGray};
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
 `;
