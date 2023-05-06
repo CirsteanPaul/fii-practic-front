@@ -3,7 +3,7 @@ import styled from '../../../theme/styled';
 export const LeaderboardPage = styled.main`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 116px);
   background-color: ${props => props.theme.colors.backgroundGray};
   align-items: center;
   justify-content: center;
@@ -19,12 +19,12 @@ export const LeaderboardContainer = styled.div`
   margin-top: 20px;
   padding: 40px;
 
-  width: 80vw;
-  height: 80vh;
+  width: 95%;
+  /* height: 80vh; */
 `;
 
 export const LeaderboardTitle = styled.h2`
-  font-family: ${props => props.theme.fonts.interRegular};
+  font-family: ${props => props.theme.fonts.interBold};
 `;
 
 export const LeaderboardTypes = styled.div`
@@ -45,12 +45,12 @@ export const LeaderboardTypes = styled.div`
 `;
 
 export const LeaderboardRole = styled.div`
-  width: 15%;
+  width: 20%;
   font-family: ${props => props.theme.fonts.interRegular};
-  /* text-align: center; */
 `;
 
 export const LeaderboardName = styled.div`
+  font-family: ${props => props.theme.fonts.interRegular};
   width: 30%;
   display: flex;
   align-items: center;
@@ -58,22 +58,21 @@ export const LeaderboardName = styled.div`
 
 export const LeaderboardGender = styled.div`
   width: 20%;
+  font-family: ${props => props.theme.fonts.interRegular};
 `;
 
 export const LeaderboardScore = styled.div`
-  width: 10%;
+  font-family: ${props => props.theme.fonts.interRegular};
+  width: 20%;
 `;
 
 export const LeaderboardAction = styled.div`
-  width: 20%;
+  font-family: ${props => props.theme.fonts.interRegular};
+  width: 15%;
   text-align: center;
-`;
 
-export const LeaderboardStatus = styled.div`
-  width: 20%;
-  text-align: center;
   display: flex;
-  justify-content: center;
+  gap: 10px;
 `;
 
 export const Delimitator = styled.div`
@@ -103,13 +102,30 @@ export const UserImg = styled.img`
   border-radius: 5px;
 `;
 
-export const StatusDoneButton = styled.div`
-  font-size: ${props => props.theme.fontSize.medium};
-  padding: 10px;
-  color: ${props => props.theme.colors.activeGreen};
-  background-color: ${props => props.theme.colors.backgroundGray};
-  border-radius: 10px;
+export const DetailsButton = styled.img`
+  background-color: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.borderGray};
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  border-radius: 5px;
 
-  width: 100px;
-  height: 50px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+`;
+
+export const UserButton = styled.img`
+  background-color: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.borderGray};
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
 `;
