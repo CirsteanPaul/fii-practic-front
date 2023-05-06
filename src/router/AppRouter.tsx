@@ -8,6 +8,7 @@ import Home from '../modules/home';
 import SideNavbar from '../components/side-navbar';
 import { ColumnContainer, RowContainer } from './styles';
 import TopNavBar from '../components/top-navbar';
+import Leaderboard from '../modules/components/leaderboard';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -23,7 +24,8 @@ const AppRouter = () => {
           <TopNavBar />
           <Routes>
             <Route index element={<Home />} />
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="leaderboard" element={<Leaderboard />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </ColumnContainer>
       </RowContainer>
