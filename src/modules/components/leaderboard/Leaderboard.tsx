@@ -1,10 +1,9 @@
-import LeaderboardElement from '../LeaderboardElement';
+import LeaderboardElement from './LeaderboardElement';
 import {
   LeaderboardPage,
   LeaderboardContainer,
   LeaderboardTitle,
   LeaderboardTypes,
-  LeaderboardStatus,
   LeaderboardAction,
   LeaderboardGender,
   LeaderboardName,
@@ -20,7 +19,6 @@ const Types = () => (
     <LeaderboardGender>Gender</LeaderboardGender>
     <LeaderboardScore>Score</LeaderboardScore>
     <LeaderboardAction>Action</LeaderboardAction>
-    <LeaderboardStatus>Status</LeaderboardStatus>
   </LeaderboardTypes>
 );
 

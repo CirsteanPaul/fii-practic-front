@@ -21,6 +21,7 @@ import { getUserActionAsync } from '../store/actions/user-actions';
 import { tokenAuthSelector } from '../store/selectors/auth-selectors';
 // eslint-disable-next-line import/order
 import { useEffect } from 'react';
+import CreateCv from '../modules/create-cv';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -61,6 +62,7 @@ const AppRouter = () => {
             <Routes>
               <Route index element={<Home />} />
               <Route path="leaderboard" element={<Leaderboard />} />
+              <Route path="cv/create" element={<CreateCv />} />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
           </ColumnContainer>

@@ -7,8 +7,10 @@ type colors = {
   hoverGray: string;
   borderGray: string;
   textGray: string;
-  darkBlue: string;
+  formsTextGray: string;
+  formsTitleGray: string;
   lighterGray: string;
+  darkBlue: string;
   lightGray: string;
   veryLightGray: string;
   delimitatorGray: string;
@@ -17,14 +19,12 @@ type colors = {
   purple: string;
   green: string;
   orange: string;
+  backgroundBlue: string;
   lightPink: string;
   activeGreen: string;
+  textBlue: string;
   inactiveRed: string;
   hoverPurple: string;
-  formsTextGray: string;
-  formsTitleGray: string;
-  backgroundBlue: string;
-  textBlue: string;
   darkerGray: string;
 };
 type fontSize = {
