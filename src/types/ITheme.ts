@@ -1,6 +1,8 @@
 type colors = {
   primary: string;
   accent: string;
+  purple: string;
+  darkerGray: string;
 };
 type fontSize = {
   medium: string;
@@ -9,6 +11,7 @@ type fontSize = {
 };
 type fonts = {
   normal: string;
+  inter: string;
 };
 
 interface ITheme {
