@@ -1,3 +1,5 @@
+import React from 'react';
+
 import backgroundLogo from './backgroundLogo.png';
 import {
   BackgroundLogo,
