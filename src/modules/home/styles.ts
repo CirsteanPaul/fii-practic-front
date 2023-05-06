@@ -4,29 +4,47 @@ export const HomePage = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-grow: 1;
+  height: calc(100vh - 116px);
 
   background-color: ${props => props.theme.colors.backgroundGray};
+
+  @media (max-width: 1000px) {
+    height: calc(100vh - 96px);
+  }
 `;
 
 export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   height: 90%;
   background-color: ${props => props.theme.colors.white};
   border-radius: 14px;
 
   position: relative;
-  padding: 100px 150px 50px 100px;
+  padding: 50px 120px 50px 100px;
 
   @media (max-width: 1300px) {
-    padding: 60px 100px 50px 60px;
+    padding: 30px 100px 50px 60px;
   }
 
   @media (max-width: 1185px) {
     padding: 60px;
     text-align: center;
+    padding-top: 20px;
+  }
+  @media (max-width: 750px) {
+    width: 90%;
+    height: 95%;
+  }
+  @media (max-width: 560px) {
+    padding: 30px;
+    padding-top: 10px;
+  }
+  @media (max-width: 400px) {
+    width: 95%;
+    height: 95%;
+    padding: 10px;
   }
 `;
 
@@ -59,6 +77,14 @@ export const MainTitle = styled.h1`
   @media (max-width: 1185px) {
     padding: 0;
   }
+  @media (max-width: 560px) {
+    padding-top: 20px;
+    font-size: ${props => props.theme.fontSize.large};
+  }
+  @media (max-width: 400px) {
+    padding-top: 10px;
+    font-size: ${props => props.theme.fontSize.medium};
+  }
 `;
 
 export const SubTitle = styled.h2`
@@ -68,6 +94,9 @@ export const SubTitle = styled.h2`
 
   @media (max-width: 1185px) {
     padding: 0;
+  }
+  @media (max-width: 560px) {
+    font-size: ${props => props.theme.fontSize.small};
   }
 `;
 
@@ -81,6 +110,10 @@ export const HowItWorks = styled.div`
 
   @media (max-width: 1185px) {
     padding-left: 0;
+    padding-top: 30px;
+  }
+  @media (max-width: 560px) {
+    padding-top: 15px;
   }
 `;
 
@@ -91,11 +124,19 @@ export const HowItWorksTitle = styled.h1`
   @media (max-width: 1430px) {
     font-size: ${props => props.theme.fontSize.large};
   }
+  @media (max-width: 1430px) {
+    font-size: ${props => props.theme.fontSize.large};
+  }
+  @media (max-width: 400px) {
+    padding-top: 0px;
+    font-size: ${props => props.theme.fontSize.medium};
+  }
 `;
 
 export const HowItWorksDescription = styled.h2`
   color: ${props => props.theme.colors.lightGray};
   font-family: ${props => props.theme.fonts.interRegular};
+  font-size: ${props => props.theme.fontSize.medium};
   padding-left: 15px;
 
   @media (max-width: 1430px) {
@@ -104,6 +145,13 @@ export const HowItWorksDescription = styled.h2`
 
   @media (max-width: 1185px) {
     padding-left: 0;
+  }
+  @media (max-width: 600px) {
+    font-size: ${props => props.theme.fontSize.small};
+  }
+  @media (max-width: 400px) {
+    padding-top: 0px;
+    font-size: ${props => props.theme.fontSize.mxSmall};
   }
 `;
 
@@ -118,6 +166,12 @@ export const HowToPlay = styled.div`
   @media (max-width: 1185px) {
     padding-left: 0;
   }
+  @media (max-width: 560px) {
+    padding-top: 10px;
+  }
+  @media (max-width: 350px) {
+    padding-top: 10px;
+  }
 `;
 
 export const HowToPlayTitle = styled.h1`
@@ -126,6 +180,10 @@ export const HowToPlayTitle = styled.h1`
 
   @media (max-width: 1430px) {
     font-size: ${props => props.theme.fontSize.large};
+  }
+  @media (max-width: 400px) {
+    padding-top: 0px;
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
@@ -140,6 +198,13 @@ export const HowToPlayDescription = styled.h2`
 
   @media (max-width: 1185px) {
     padding-left: 0;
+  }
+  @media (max-width: 600px) {
+    font-size: ${props => props.theme.fontSize.small};
+  }
+  @media (max-width: 400px) {
+    padding-top: 10px;
+    font-size: ${props => props.theme.fontSize.mxSmall};
   }
 `;
 
