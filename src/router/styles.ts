@@ -10,7 +10,7 @@ export const ColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
-  width: calc(100% - 270px);
+  width: calc(100% - 265px);
   gap: 110px;
   padding-left: 100px;
 `;
