@@ -16,25 +16,12 @@ export const loginPostRequest = async (data: ILoginPostRequest): Promise<ILoginP
   }
 };
 
-export const registerPostRequest = async (data: IRegisterPostRequest): Promise<IRegisterPostResponse | null> => {
+export const registerPostRequest = async (data: IRegisterPostRequest): Promise<any> => {
   try {
     const response: AxiosResponse<IRegisterPostResponse> = await getApi().post('/auth/register', data);
 
-    return response.data;
+    return response;
   } catch (err) {
     throw handleApiError(err);
   }
-};
-
-export const testGetRequest = async (): Promise<boolean> => {
-  try {
-    const response: AxiosResponse<IRegisterPostResponse> = await getApi().get('/home/test');
-    if (response) {
-      return true;
-    }
-  } catch (err) {
-    throw handleApiError(err);
-  }
-
-  return false;
 };
