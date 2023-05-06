@@ -27,6 +27,7 @@ const defaultTheme: ITheme = {
     hoverPurple: '#9666FF',
     backgroundBlue: '#E3E9FF',
     textBlue: '#3D60EA',
+    darkerGray: '#45464B',
   },
   fonts: {
     normal: 'Outfit',

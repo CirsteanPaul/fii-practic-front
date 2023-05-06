@@ -9,6 +9,7 @@ export const SideNavbarContainer = styled.div`
   flex-direction: column;
   padding-top: 25px;
   padding-left: 40px;
+  max-width: 400px;
 `;
 
 export const SideNavbarLogoContainer = styled.div`

@@ -37,7 +37,7 @@ const Home = (): JSX.Element => {
     };
     dispatch(loginAuthActionAsync(loginData));
   };
-  return <div>Hello</div>;
+  return <HomeContainer>Home</HomeContainer>;
 };
 
 export default Home;

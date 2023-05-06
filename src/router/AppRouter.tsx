@@ -22,7 +22,7 @@ const AppRouter = () => {
         <ColumnContainer>
           <TopNavBar />
           <Routes>
-            {/* <Route index element={<Home />} /> */}
+            <Route index element={<Home />} />
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </ColumnContainer>

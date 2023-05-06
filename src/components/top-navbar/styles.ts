@@ -6,6 +6,7 @@ export const TopNavbarContainer = styled.div`
   height: auto;
   padding-top: 32px;
   padding-right: 50px;
+  justify-content: flex-end;
 `;
 
 export const TopNavBarMenu = styled.div`
