@@ -1,6 +1,27 @@
 type colors = {
   primary: string;
   accent: string;
+  logoPurple: string;
+  white: string;
+  backgroundGray: string;
+  hoverGray: string;
+  borderGray: string;
+  textGray: string;
+  formsTextGray: string;
+  formsTitleGray: string;
+  darkBlue: string;
+  lighterGray: string;
+  lightGray: string;
+  delimitatorGray: string;
+  violet: string;
+  lightBlue: string;
+  purple: string;
+  green: string;
+  orange: string;
+  lightPink: string;
+  activeGreen: string;
+  inactiveRed: string;
+  hoverPurple: string;
 };
 type fontSize = {
   medium: string;

@@ -3,6 +3,9 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface AppState {
   isAppModalOpen: boolean;
+  isLoginModalOpen: boolean;
+  isRegisterModalOpen: boolean;
+  isRolesModalOpen: boolean;
   isAppLoading: boolean;
   isAppScrolled: boolean;
   appStateWidth: number;
@@ -10,6 +13,9 @@ interface AppState {
 
 const initialState: AppState = {
   isAppModalOpen: false,
+  isLoginModalOpen: false,
+  isRegisterModalOpen: false,
+  isRolesModalOpen: false,
   isAppLoading: false,
   isAppScrolled: false,
   appStateWidth: 0,
@@ -21,6 +27,15 @@ const appSlice = createSlice({
   reducers: {
     setModalOpenAction(state, action: PayloadAction<boolean>) {
       state.isAppModalOpen = action.payload;
+    },
+    setLoginModalOpenAction(state, action: PayloadAction<boolean>) {
+      state.isLoginModalOpen = action.payload;
+    },
+    setRegisterModalOpenAction(state, action: PayloadAction<boolean>) {
+      state.isRegisterModalOpen = action.payload;
+    },
+    setRolesModalOpenAction(state, action: PayloadAction<boolean>) {
+      state.isRolesModalOpen = action.payload;
     },
     setIsLoadingAction(state, action: PayloadAction<boolean>) {
       state.isAppLoading = action.payload;
@@ -34,5 +49,6 @@ const appSlice = createSlice({
   },
 });
 
-export const { setModalOpenAction, setIsLoadingAction, setAppIsScrolledAction, setAppWidthAction } = appSlice.actions;
+export const { setModalOpenAction, setLoginModalOpenAction, setRegisterModalOpenAction, setRolesModalOpenAction, setIsLoadingAction, setAppIsScrolledAction, setAppWidthAction } =
+  appSlice.actions;
 export default appSlice.reducer;
