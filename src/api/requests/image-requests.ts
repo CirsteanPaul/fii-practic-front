@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import IImageRequest from '../../types/requests/IImageRequest';
+import IImageRequest from '../../types/image/IImageRequest';
 import { getApi } from '../Api';
 import handleApiError from '../../services/handlerApiError';
 

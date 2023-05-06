@@ -14,6 +14,13 @@ import { setModalOpenAction } from '../store/slices/appSlice';
 import './styles.css';
 import headerLogo from './header_logo.png';
 import Leaderboard from '../modules/components/leaderboard';
+import ILoginPostRequest from '../types/auth/ILoginPostRequest';
+import { loginAuthActionAsync } from '../store/actions/auth-actions';
+import { idUserSelector, linkedinUserSelector, nameUserSelector, usernameUserSelector } from '../store/selectors/user-selector';
+import { getUserActionAsync } from '../store/actions/user-actions';
+import { tokenAuthSelector } from '../store/selectors/auth-selectors';
+// eslint-disable-next-line import/order
+import { useEffect } from 'react';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -22,7 +29,15 @@ const AppRouter = () => {
   const dispatch = useAppDispatch();
   const width = useAppSelector(appWidthSelector);
   const isOpen = useAppSelector(isModalOpenAppStateSelector);
-  console.log(width);
+  const token = useAppSelector(tokenAuthSelector);
+
+  useEffect(() => {
+    dispatch(getUserActionAsync());
+  }, [dispatch]);
+  const userUsername = useAppSelector(usernameUserSelector);
+  const userName = useAppSelector(linkedinUserSelector);
+  console.log(userName);
+
   const buildButton = (): JSX.Element => {
     return (
       <button style={{ zIndex: 50 }} type="button" onClick={() => dispatch(setModalOpenAction(!isOpen))} className={`${isOpen ? 'active' : ''} burger`}>

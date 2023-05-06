@@ -3,7 +3,7 @@ import { HomeContainer } from './styles';
 import { useAppDispatch } from '../../hooks/store-hooks';
 import ILoginPostRequest from '../../types/auth/ILoginPostRequest';
 import { loginAuthActionAsync, registerAuthActionAsync } from '../../store/actions/auth-actions';
-import IImageRequest from '../../types/requests/IImageRequest';
+import IImageRequest from '../../types/image/IImageRequest';
 import { imagePostRequest } from '../../api/requests/image-requests';
 
 const Home = (): JSX.Element => {
