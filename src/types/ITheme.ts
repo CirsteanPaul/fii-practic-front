@@ -40,6 +40,7 @@ type fontSize = {
 };
 type fonts = {
   normal: string;
+  inter: string;
 };
 
 interface ITheme {
