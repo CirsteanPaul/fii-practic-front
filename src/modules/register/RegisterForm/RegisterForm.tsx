@@ -40,6 +40,7 @@ const RegisterForm = ({ isOpen, role, setRole }: IProps): JSX.Element => {
   };
 
   const handleNavigateToLogin = () => {
+    setRole(0);
     dispatch(setRegisterModalOpenAction(false));
     dispatch(setLoginModalOpenAction(true));
   };

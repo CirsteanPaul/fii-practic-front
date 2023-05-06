@@ -14,6 +14,7 @@ import { setModalOpenAction } from '../store/slices/appSlice';
 import './styles.css';
 import headerLogo from './header_logo.png';
 import Leaderboard from '../modules/components/leaderboard';
+import CreateCv from '../modules/create-cv';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -46,6 +47,7 @@ const AppRouter = () => {
             <Routes>
               <Route index element={<Home />} />
               <Route path="leaderboard" element={<Leaderboard />} />
+              <Route path="cv/create" element={<CreateCv />} />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
           </ColumnContainer>
