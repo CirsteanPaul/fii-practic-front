@@ -7,7 +7,7 @@ const TopNavBar = (): JSX.Element => {
     <TopNavbarContainer>
       <TopNavBarMenu>
         <ProfilePicture src={profilepicture} />
-        <Name to="">Mihai</Name>
+        <Name to="settings">Mihai</Name>
       </TopNavBarMenu>
     </TopNavbarContainer>
   );
