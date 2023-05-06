@@ -49,3 +49,7 @@ body {
   font-family: 'Inter Bold';
   src: url('./../fonts/Inter-Bold.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Inter Regular';
+  src: url('./../fonts/Inter-Regular.ttf') format('truetype');
+}
