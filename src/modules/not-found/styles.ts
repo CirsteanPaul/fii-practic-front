@@ -30,22 +30,40 @@ export const NotFoundTitle = styled.h1`
   color: ${props => props.theme.colors.darkBlue};
   text-justify: center;
   margin: 1rem 0;
+
+  @media (max-width: 350px) {
+    font-size: ${props => props.theme.fontSize.medium};
+  }
 `;
 
 export const NotFoundText = styled.h1`
   color: ${props => props.theme.colors.lightGray};
   font-size: ${props => props.theme.fontSize.medium};
   margin: 1rem 0;
+
+  @media (max-width: 620px) {
+    font-size: ${props => props.theme.fontSize.small};
+    width: 80%;
+    text-align: center;
+  }
+
+  @media (max-width: 310px) {
+    font-size: ${props => props.theme.fontSize.mSmall};
+  }
 `;
 
 export const NotFoundLink = styled(Link)`
-  color: ${props => props.theme.colors.accent};
+  color: ${props => props.theme.colors.logoPurple};
   text-decoration: none;
   margin-top: 20px;
 
   &:hover {
-    color: #2b4069;
+    color: ${props => props.theme.colors.hoverPurple};
     transition: color 0.2s ease;
+  }
+
+  @media (max-width: 310px) {
+    font-size: ${props => props.theme.fontSize.xSmall};
   }
 `;
 
@@ -56,6 +74,10 @@ export const TopLeftCorner = styled.img`
   position: absolute;
   top: 0px;
   left: 0px;
+
+  @media (max-width: 310px) {
+    display: none;
+  }
 `;
 
 export const TopRightCorner = styled.img`
@@ -66,6 +88,10 @@ export const TopRightCorner = styled.img`
   top: 0px;
   right: 0px;
   transform: scaleX(-1);
+
+  @media (max-width: 310px) {
+    display: none;
+  }
 `;
 
 export const BottomLeftCorner = styled.img`
@@ -76,6 +102,10 @@ export const BottomLeftCorner = styled.img`
   bottom: 0px;
   left: 0px;
   transform: scaleY(-1);
+
+  @media (max-width: 310px) {
+    display: none;
+  }
 `;
 
 export const BottomRightCorner = styled.img`
@@ -86,4 +116,8 @@ export const BottomRightCorner = styled.img`
   bottom: 0px;
   right: 0px;
   transform: scale(-1);
+
+  @media (max-width: 310px) {
+    display: none;
+  }
 `;
