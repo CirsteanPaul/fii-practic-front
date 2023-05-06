@@ -2,7 +2,7 @@ import ITheme from '../types/ITheme';
 
 const defaultTheme: ITheme = {
   colors: {
-    primary: '#DF4D4D',
+    primary: '#61677F',
     accent: '#1E2D4A',
     logoPurple: '#8146FF',
     white: '#FFFFFF',
@@ -28,12 +28,14 @@ const defaultTheme: ITheme = {
     hoverPurple: '#9666FF',
     backgroundBlue: '#E3E9FF',
     textBlue: '#3D60EA',
+    darkerGray: '#45464B',
   },
   fonts: {
     normal: 'Outfit',
     interLight: 'Inter Light',
     interRegular: 'Inter Regular',
     interBold: 'Inter Bold',
+    inter: 'Inter Bold',
   },
   fontSize: {
     medium: '22px',

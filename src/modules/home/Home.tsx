@@ -37,23 +37,7 @@ const Home = (): JSX.Element => {
     };
     dispatch(loginAuthActionAsync(loginData));
   };
-  return (
-    <HomeContainer>
-      Hello Home page
-      <button type="button" onClick={handleLogin}>
-        Login
-      </button>
-      <button type="button" onClick={() => dispatch(registerAuthActionAsync(registerData))}>
-        Register
-      </button>
-      <input type="file" name="file" onChange={changeHandler} />
-      <div>
-        <button type="button" onClick={handleSubmission}>
-          Submit
-        </button>
-      </div>
-    </HomeContainer>
-  );
+  return <HomeContainer>Home</HomeContainer>;
 };
 
 export default Home;

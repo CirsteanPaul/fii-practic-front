@@ -25,6 +25,7 @@ type colors = {
   formsTitleGray: string;
   backgroundBlue: string;
   textBlue: string;
+  darkerGray: string;
 };
 type fontSize = {
   medium: string;
@@ -44,6 +45,7 @@ type fonts = {
   interLight: string;
   interRegular: string;
   interBold: string;
+  inter: string;
 };
 
 interface ITheme {
