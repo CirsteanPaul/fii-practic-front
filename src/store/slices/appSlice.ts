@@ -12,7 +12,7 @@ const initialState: AppState = {
   isAppModalOpen: false,
   isAppLoading: false,
   isAppScrolled: false,
-  appStateWidth: 0,
+  appStateWidth: window.innerWidth,
 };
 
 const appSlice = createSlice({
