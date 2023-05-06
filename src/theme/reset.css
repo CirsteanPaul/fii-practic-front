@@ -1,8 +1,11 @@
-*{
-    font-family: 'Outfit', 'Baloo';
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  font-family: 'Outfit', 'Baloo';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .invisible-scrollbar::-webkit-scrollbar {
@@ -14,31 +17,39 @@ body {
 }
 
 @font-face {
-    font-family: "Outfit";
-    src: url("./../fonts/Outfit-Black.ttf") format("truetype");
+  font-family: 'Outfit';
+  src: url('./../fonts/Outfit-Black.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "Outfit Bold";
-    src: url("./../fonts/Outfit-Bold.ttf") format("truetype");
+  font-family: 'Outfit Bold';
+  src: url('./../fonts/Outfit-Bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Outfit ExtraBold";
-  src: url("./../fonts/Outfit-ExtraBold.ttf") format("truetype");
+  font-family: 'Outfit ExtraBold';
+  src: url('./../fonts/Outfit-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Inter Light";
-  src: url("./../fonts/Inter-Light.ttf") format("truetype");
+  font-family: 'Inter Light';
+  src: url('./../fonts/Inter-Light.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "Outfit Light";
-    src: url("./../fonts/Outfit-Light.ttf") format("truetype");
+  font-family: 'Outfit Light';
+  src: url('./../fonts/Outfit-Light.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "Outfit Regular";
-    src: url("./../fonts/Outfit-Regular.ttf") format("truetype");
+  font-family: 'Outfit Regular';
+  src: url('./../fonts/Outfit-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter Bold';
+  src: url('./../fonts/Inter-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter Regular';
+  src: url('./../fonts/Inter-Regular.ttf') format('truetype');
 }

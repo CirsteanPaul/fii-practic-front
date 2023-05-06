@@ -1,86 +1,46 @@
-import React, { useState } from 'react';
-import { HomeContainer } from './styles';
-import { useAppDispatch, useAppSelector } from '../../hooks/store-hooks';
-import ILoginPostRequest from '../../types/auth/ILoginPostRequest';
-import { loginAuthActionAsync, registerAuthActionAsync } from '../../store/actions/auth-actions';
-import IImageRequest from '../../types/requests/IImageRequest';
-import { imagePostRequest } from '../../api/requests/image-requests';
-import { setRegisterModalOpenAction, setLoginModalOpenAction, setRolesModalOpenAction } from '../../store/slices/appSlice';
-import AuthModal from '../auth-modal';
-import { isLoginModalOpenAppStateSelector, isRegisterModalOpenAppStateSelector, isRolesModalOpenAppStateSelector } from '../../store/selectors/app-selectors';
+import backgroundLogo from './backgroundLogo.png';
+import {
+  BackgroundLogo,
+  HomeContainer,
+  HomePage,
+  HomeTitle,
+  HowItWorks,
+  HowItWorksDescription,
+  HowItWorksTitle,
+  HowToPlay,
+  HowToPlayDescription,
+  HowToPlayTitle,
+  MainTitle,
+  SignUpButton,
+  SubTitle,
+} from './styles';
 
 const Home = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-
-  const [selectedFile, setSelectedFile] = useState<File>();
-  const [isFilePicked, setIsFilePicked] = useState(false);
-
-  const isLoginModal = useAppSelector(isLoginModalOpenAppStateSelector);
-  const isRegisterModal = useAppSelector(isRegisterModalOpenAppStateSelector);
-  const isRolesModal = useAppSelector(isRolesModalOpenAppStateSelector);
-
-  const isOpenModal = isLoginModal || isRegisterModal || isRolesModal;
-
-  const changeHandler = (event: any) => {
-    setSelectedFile(event.target.files[0]);
-    setIsFilePicked(true);
-  };
-  const handleSubmission = async () => {
-    const imageRequest: IImageRequest = {
-      name: selectedFile.name,
-      file: selectedFile,
-    };
-    console.log(imageRequest);
-    await imagePostRequest(imageRequest);
-  };
-
-  const registerData = {
-    username: 'alinad',
-    password: 'lala',
-    email: 'lalam',
-  };
-  const handleLogin = () => {
-    const loginData: ILoginPostRequest = {
-      username: 'alinad',
-      password: 'lala',
-    };
-    dispatch(loginAuthActionAsync(loginData));
-  };
   return (
-    <HomeContainer>
-      <AuthModal isOpen={isOpenModal} />
-      Hello Home page
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(setRegisterModalOpenAction(true));
-        }}
-      >
-        Register
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(setLoginModalOpenAction(true));
-        }}
-      >
-        Login
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(setRolesModalOpenAction(true));
-        }}
-      >
-        Roles
-      </button>
-      <input type="file" name="file" onChange={changeHandler} />
-      <div>
-        <button type="button" onClick={handleSubmission}>
-          Submit
-        </button>
-      </div>
-    </HomeContainer>
+    <HomePage>
+      <HomeContainer>
+        <BackgroundLogo src={backgroundLogo} />
+        <HomeTitle>
+          <MainTitle>Gamified Recruitment</MainTitle>
+          <SubTitle>An interactive way of evaluating strengths</SubTitle>
+        </HomeTitle>
+        <HowItWorks>
+          <HowItWorksTitle>How does it work?</HowItWorksTitle>
+          <HowItWorksDescription>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </HowItWorksDescription>
+        </HowItWorks>
+        <HowToPlay>
+          <HowToPlayTitle>How to play the game?</HowToPlayTitle>
+          <HowToPlayDescription>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </HowToPlayDescription>
+        </HowToPlay>
+        <SignUpButton>+ Sign up</SignUpButton>
+      </HomeContainer>
+    </HomePage>
   );
 };
 
