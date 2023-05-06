@@ -1,43 +1,47 @@
-import React, { useState } from 'react';
-import { HomeContainer } from './styles';
-import { useAppDispatch } from '../../hooks/store-hooks';
-import ILoginPostRequest from '../../types/auth/ILoginPostRequest';
-import { loginAuthActionAsync, registerAuthActionAsync } from '../../store/actions/auth-actions';
-import IImageRequest from '../../types/requests/IImageRequest';
-import { imagePostRequest } from '../../api/requests/image-requests';
+import backgroundLogo from './backgroundLogo.png';
+import {
+  BackgroundLogo,
+  HomeContainer,
+  HomePage,
+  HomeTitle,
+  HowItWorks,
+  HowItWorksDescription,
+  HowItWorksTitle,
+  HowToPlay,
+  HowToPlayDescription,
+  HowToPlayTitle,
+  MainTitle,
+  SignUpButton,
+  SubTitle,
+} from './styles';
 
 const Home = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-
-  const [selectedFile, setSelectedFile] = useState<File>();
-  const [isFilePicked, setIsFilePicked] = useState(false);
-
-  const changeHandler = (event: any) => {
-    setSelectedFile(event.target.files[0]);
-    setIsFilePicked(true);
-  };
-  const handleSubmission = async () => {
-    const imageRequest: IImageRequest = {
-      name: selectedFile.name,
-      file: selectedFile,
-    };
-    console.log(imageRequest);
-    await imagePostRequest(imageRequest);
-  };
-
-  const registerData = {
-    username: 'alinad',
-    password: 'lala',
-    email: 'lalam',
-  };
-  const handleLogin = () => {
-    const loginData: ILoginPostRequest = {
-      username: 'alinad',
-      password: 'lala',
-    };
-    dispatch(loginAuthActionAsync(loginData));
-  };
-  return <HomeContainer>Home</HomeContainer>;
+  return (
+    <HomePage>
+      <HomeContainer>
+        <BackgroundLogo src={backgroundLogo} />
+        <HomeTitle>
+          <MainTitle>Gamified Recruitment</MainTitle>
+          <SubTitle>An interactive way of evaluating strengths</SubTitle>
+        </HomeTitle>
+        <HowItWorks>
+          <HowItWorksTitle>How does it work?</HowItWorksTitle>
+          <HowItWorksDescription>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </HowItWorksDescription>
+        </HowItWorks>
+        <HowToPlay>
+          <HowToPlayTitle>How to play the game?</HowToPlayTitle>
+          <HowToPlayDescription>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </HowToPlayDescription>
+        </HowToPlay>
+        <SignUpButton>+ Sign up</SignUpButton>
+      </HomeContainer>
+    </HomePage>
+  );
 };
 
 export default Home;
