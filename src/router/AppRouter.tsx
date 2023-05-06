@@ -13,6 +13,7 @@ import { appWidthSelector, isModalOpenAppStateSelector } from '../store/selector
 import { setModalOpenAction } from '../store/slices/appSlice';
 import './styles.css';
 import headerLogo from './header_logo.png';
+import Leaderboard from '../modules/components/leaderboard';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -21,7 +22,7 @@ const AppRouter = () => {
   const dispatch = useAppDispatch();
   const width = useAppSelector(appWidthSelector);
   const isOpen = useAppSelector(isModalOpenAppStateSelector);
-
+  console.log(width);
   const buildButton = (): JSX.Element => {
     return (
       <button style={{ zIndex: 50 }} type="button" onClick={() => dispatch(setModalOpenAction(!isOpen))} className={`${isOpen ? 'active' : ''} burger`}>
@@ -44,6 +45,7 @@ const AppRouter = () => {
             <TopNavBar />
             <Routes>
               <Route index element={<Home />} />
+              <Route path="leaderboard" element={<Leaderboard />} />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
           </ColumnContainer>
@@ -57,6 +59,7 @@ const AppRouter = () => {
         {!isOpen && buildButton()}
         <Routes>
           <Route index element={<Home />} />
+          <Route path="leaderboard" element={<Leaderboard />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </ColumnContainer>
@@ -82,6 +85,7 @@ const AppRouter = () => {
           Settings
         </InsideLink>
       </HeaderMobileMenu>
+      <AppLoaderOverlay />
     </BrowserRouter>
   );
 };
