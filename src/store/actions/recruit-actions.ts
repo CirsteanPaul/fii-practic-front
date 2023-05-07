@@ -17,7 +17,7 @@ export const fetchLeaderboardAsyncAction = createAsyncThunk<void, never, { state
     thunkApi.dispatch(setRecruitLeaderboardAction(response));
   } catch (err) {
     if (err instanceof ApiException) {
-      alertService.errorAlert({ title: 'Leaderboard is unavailable', message: null });
+      alertService.errorAlert({ title: 'Leaderboard is unavailable', message: err.data.detail });
     }
   } finally {
     thunkApi.dispatch(setRecruitLoadingAction(false));
