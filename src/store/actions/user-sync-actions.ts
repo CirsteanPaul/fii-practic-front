@@ -24,3 +24,4 @@ export const setPositionRoleUserAction = createAction<number>(USER_POSITIONROLE)
 export const setDescriptionUserAction = createAction<string>(USER_DESCRIPTION);
 export const setEmailUserAction = createAction<string>(USER_EMAIL);
 export const setAvatarUserAction = createAction<string>(USER_AVATAR);
+export const setLoadingUserAction = createAction<boolean>('USER_LOADING');

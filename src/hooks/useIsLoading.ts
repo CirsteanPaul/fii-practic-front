@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { isLoadingAuthSelector } from '../store/selectors/auth-selectors';
+import { loadingUserSelector } from '../store/selectors/user-selector';
 import { setIsLoadingAction } from '../store/slices/appSlice';
 import { useAppDispatch, useAppSelector } from './store-hooks';
 
@@ -12,10 +13,10 @@ const useIsLoading = (): void => {
   const dispatch = useAppDispatch();
 
   const isAuthLoading = useAppSelector(isLoadingAuthSelector); // a selector should be added
-
+  const isUserLoading = useAppSelector(loadingUserSelector);
   const isStateLoading = useMemo(() => {
-    return isAuthLoading; // here should be added
-  }, [isAuthLoading]); // here should be added
+    return isAuthLoading || isUserLoading; // here should be added
+  }, [isAuthLoading, isUserLoading]); // here should be added
 
   useEffect(() => {
     if (isStateLoading) {

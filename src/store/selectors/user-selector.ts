@@ -10,3 +10,4 @@ export const positionRoleUserSelector = (state: RootState): number => state.user
 export const descriptionUserSelector = (state: RootState): string => state.user.description;
 export const emailUserSelector = (state: RootState): string => state.user.email;
 export const avatarUserSelector = (state: RootState): string => state.user.avatar;
+export const loadingUserSelector = (state: RootState): boolean => state.user.loading;

@@ -9,6 +9,7 @@ interface IUserState {
   description: string;
   email: string;
   avatar: string;
+  loading: boolean;
 }
 
 export default IUserState;

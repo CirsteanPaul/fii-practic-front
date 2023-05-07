@@ -22,6 +22,7 @@ import { tokenAuthSelector } from '../store/selectors/auth-selectors';
 // eslint-disable-next-line import/order
 import { useEffect } from 'react';
 import CreateCv from '../modules/create-cv';
+import Settings from '../modules/settings';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -30,14 +31,6 @@ const AppRouter = () => {
   const dispatch = useAppDispatch();
   const width = useAppSelector(appWidthSelector);
   const isOpen = useAppSelector(isModalOpenAppStateSelector);
-  const token = useAppSelector(tokenAuthSelector);
-
-  useEffect(() => {
-    dispatch(getUserActionAsync());
-  }, [dispatch]);
-  const userUsername = useAppSelector(usernameUserSelector);
-  const userName = useAppSelector(linkedinUserSelector);
-  console.log(userName);
 
   const buildButton = (): JSX.Element => {
     return (
@@ -51,7 +44,7 @@ const AppRouter = () => {
     );
   };
 
-  if (width > 1000) {
+  if (width > 1100) {
     return (
       <BrowserRouter>
         <AppLoaderOverlay />
@@ -63,6 +56,7 @@ const AppRouter = () => {
               <Route index element={<Home />} />
               <Route path="leaderboard" element={<Leaderboard />} />
               <Route path="cv/create" element={<CreateCv />} />
+              <Route path="settings" element={<Settings />} />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
           </ColumnContainer>
@@ -77,6 +71,8 @@ const AppRouter = () => {
         <Routes>
           <Route index element={<Home />} />
           <Route path="leaderboard" element={<Leaderboard />} />
+          <Route path="cv/create" element={<CreateCv />} />
+          <Route path="settings" element={<Settings />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </ColumnContainer>

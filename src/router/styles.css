@@ -81,3 +81,9 @@
 
   width: 100vw;
 }
+
+@media (max-width: 900px) {
+  .burger {
+    margin-bottom: 0;
+  }
+}

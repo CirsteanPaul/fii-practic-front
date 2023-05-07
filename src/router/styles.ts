@@ -14,10 +14,10 @@ export const ColumnContainer = styled.div`
   width: calc(100% - 265px);
   gap: 50px;
   padding-left: 100px;
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     padding: 0px;
-    gap: 40px;
     width: 100%;
+    gap: 10px;
     height: 100%;
     justify-content: center;
     align-items: center;

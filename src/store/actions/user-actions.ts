@@ -13,6 +13,7 @@ import {
   setFacebookUserAction,
   setIdUserAction,
   setLinkedinUserAction,
+  setLoadingUserAction,
   setNameUserAction,
   setPositionRoleUserAction,
   setRoleUserAction,
@@ -31,6 +32,7 @@ export const postUserActionAsync = createAsyncThunk<void, IUserState, { state: R
 
 export const getUserActionAsync = createAsyncThunk<void, never, { state: RootState }>(USER_GET, async (__, thunkApi) => {
   try {
+    thunkApi.dispatch(setLoadingUserAction(true));
     const response = await userGetRequest();
     console.log(response);
     thunkApi.dispatch(setIdUserAction(response.id));
@@ -43,6 +45,7 @@ export const getUserActionAsync = createAsyncThunk<void, never, { state: RootSta
     thunkApi.dispatch(setDescriptionUserAction(response.description));
     thunkApi.dispatch(setEmailUserAction(response.email));
     thunkApi.dispatch(setAvatarUserAction(response.avatar));
+    thunkApi.dispatch(setLoadingUserAction(false));
   } catch (err) {
     if (err instanceof ApiException) {
       alertService.errorAlert({ title: USER_GET_FAILED__TITLE, message: err.data.detail });
