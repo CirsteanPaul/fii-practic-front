@@ -18,8 +18,9 @@ export const AuthModalContainer = styled.div`
 export const AuthModalBackdrop = styled.div<{ isOpen: boolean }>`
   display: ${props => (props.isOpen ? 'block' : 'none')};
   position: absolute;
-  width: 100%;
-  height: 100%;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
 `;
 
