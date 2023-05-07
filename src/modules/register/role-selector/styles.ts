@@ -13,6 +13,7 @@ export const RoleSelectorContainer = styled.div<{ isOpen: boolean }>`
 
   @media (max-width: 1193px) {
     width: 100%;
+    border-radius: none;
   }
 
   h1 {
