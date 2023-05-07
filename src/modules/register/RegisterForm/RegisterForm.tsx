@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { RegisterFormContainer, RegisterFormStyled, LoginLinkContainer } from './styles';
+import { RegisterFormContainer, RegisterFormStyled, LoginLinkContainer, CloseButton } from './styles';
 import IRegisterPostRequest from '../../../types/auth/IRegisterPostRequest';
 import { registerAuthActionAsync } from '../../../store/actions/auth-actions';
 import { useAppDispatch } from '../../../hooks/store-hooks';
 import { setLoginModalOpenAction, setRegisterModalOpenAction } from '../../../store/slices/appSlice';
+import xIcon from '../../auth-modal/resources/x-symbol.png';
 
 interface IProps {
   isOpen: boolean;
@@ -40,13 +41,26 @@ const RegisterForm = ({ isOpen, role, setRole }: IProps): JSX.Element => {
   };
 
   const handleNavigateToLogin = () => {
+    setUsername('');
+    setUserPassword('');
+    setUserEmail('');
     setRole(0);
     dispatch(setRegisterModalOpenAction(false));
     dispatch(setLoginModalOpenAction(true));
   };
 
+  const handleClose = () => {
+    setUsername('');
+    setUserPassword('');
+    setRole(0);
+    dispatch(setRegisterModalOpenAction(false));
+  };
+
   return (
     <RegisterFormContainer isOpen={isOpen}>
+      <CloseButton type="button" onClick={handleClose}>
+        <img src={xIcon} alt="" />
+      </CloseButton>
       <RegisterFormStyled onSubmit={handleRegister}>
         <h1>Create Account</h1>
         <input type="text" id="username" name="username" required placeholder="Username" value={username} onChange={onUsernameChanged} />

@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { LoginFormContainer, LoginFormStyled } from './styles';
+import { LoginFormContainer, LoginFormStyled, CloseButton } from './styles';
 import ILoginPostRequest from '../../types/auth/ILoginPostRequest';
 import { loginAuthActionAsync } from '../../store/actions/auth-actions';
 import { useAppDispatch } from '../../hooks/store-hooks';
 import { setLoginModalOpenAction, setRolesModalOpenAction } from '../../store/slices/appSlice';
+import xIcon from '../auth-modal/resources/x-symbol.png';
 
 interface IProps {
   isOpen: boolean;
@@ -28,7 +29,16 @@ const LoginForm = ({ isOpen, setRole }: IProps): JSX.Element => {
     dispatch(loginAuthActionAsync(loginData));
   };
 
+  const handleClose = () => {
+    setUsername('');
+    setUserPassword('');
+    setRole(0);
+    dispatch(setLoginModalOpenAction(false));
+  };
+
   const handleNavigateToRegister = () => {
+    setUsername('');
+    setUserPassword('');
     setRole(0);
     dispatch(setLoginModalOpenAction(false));
     dispatch(setRolesModalOpenAction(true));
@@ -36,6 +46,9 @@ const LoginForm = ({ isOpen, setRole }: IProps): JSX.Element => {
 
   return (
     <LoginFormContainer isOpen={isOpen}>
+      <CloseButton type="button" onClick={handleClose}>
+        <img src={xIcon} alt="" />
+      </CloseButton>
       <LoginFormStyled onSubmit={handleLogin}>
         <h1>Login</h1>
         <input type="text" id="username" name="username" required placeholder="Username" value={username} onChange={onUsernameChanged} />

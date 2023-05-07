@@ -11,6 +11,7 @@ export const RegisterFormContainer = styled.div<{ isOpen: boolean }>`
   width: 740px;
 
   & button[type='button'] {
+    font-family: 'Inter Bold';
     background: none;
     border: none;
     font-size: ${props => props.theme.fontSize.small};
@@ -23,12 +24,30 @@ export const RegisterFormContainer = styled.div<{ isOpen: boolean }>`
   }
 `;
 
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.2s ease;
+  }
+
+  img {
+    width: 25px;
+  }
+`;
+
 export const RegisterFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   width: 80%;
 
   h1 {
+    font-family: 'Inter Bold';
     width: 100%;
     text-justify: start;
     font-size: ${props => props.theme.fontSize.large};
@@ -36,6 +55,7 @@ export const RegisterFormStyled = styled.form`
     color: ${props => props.theme.colors.formsTitleGray};
   }
   & input {
+    font-family: 'Inter Bold';
     border: none;
     border-bottom: 2px solid ${props => props.theme.colors.borderGray};
     font-size: ${props => props.theme.fontSize.small};
@@ -46,6 +66,7 @@ export const RegisterFormStyled = styled.form`
   }
 
   & button[type='submit'] {
+    font-family: 'Inter Bold';
     border-radius: 5px;
     border: none;
     background-color: ${props => props.theme.colors.logoPurple};
@@ -70,6 +91,7 @@ export const LoginLinkContainer = styled.div`
   margin-top: 2rem;
 
   & p {
+    font-family: 'Inter Bold';
     color: ${props => props.theme.colors.formsTextGray};
     font-size: ${props => props.theme.fontSize.small};
   }
