@@ -1,21 +1,29 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-restricted-globals */
-import { Navigate, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { DetailsButton, LeaderboardAction, LeaderboardGender, LeaderboardName, LeaderboardRole, LeaderboardScore, UserButton, UserImg, UserLeaderboard } from './styles';
 import detailsImg from './details.png';
 import userImg from './user.png';
 import DetailsPopUp from '../detailsPopUp';
-import { useAppDispatch } from '../../../hooks/store-hooks';
-import { fetchLeaderboardAsyncAction } from '../../../store/actions/recruit-actions';
+import IRecruitResponse from '../../../types/responses/IRecruitResponse';
 
-const LeaderboardElement = () => {
+interface IProps {
+  recruit: IRecruitResponse;
+}
+
+export const enum PositionRole {
+  FrontEnd,
+  BackEnd,
+  DevOps,
+  SystemAdmin,
+  FullStack,
+}
+
+const LeaderboardElement = ({ recruit }: IProps) => {
+  console.log(recruit);
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  useEffect(() => {
-    dispatch(fetchLeaderboardAsyncAction());
-  }, [dispatch]);
 
   const handleOpenDetails = () => {
     navigate('details');
@@ -25,27 +33,45 @@ const LeaderboardElement = () => {
     setModalIsOpen(true);
   };
 
-  // eslint-disable-next-line react/no-unstable-nested-components
-  const Types = () => {
-    return (
-      <UserLeaderboard>
-        {modalIsOpen && <DetailsPopUp setModalIsOpen={setModalIsOpen} />}
-        <LeaderboardRole>Role</LeaderboardRole>
-        <LeaderboardName>
-          {screen.width > 850 && <UserImg src="../../not-found/corner.png" />}
-          Name
-        </LeaderboardName>
-        <LeaderboardGender>Gender</LeaderboardGender>
-        <LeaderboardScore>Score</LeaderboardScore>
-        <LeaderboardAction>
-          <DetailsButton src={detailsImg} onClick={handleOpenPopUp} />
-          <UserButton src={userImg} onClick={handleOpenDetails} />
-        </LeaderboardAction>
-      </UserLeaderboard>
-    );
+  const role = (currentRecruit: IRecruitResponse): string => {
+    switch (currentRecruit.user.positionRole) {
+      case PositionRole.FrontEnd: {
+        return 'FrontEnd';
+      }
+      case PositionRole.BackEnd: {
+        return 'BackEnd';
+      }
+      case PositionRole.DevOps: {
+        return 'DevOps';
+      }
+      case PositionRole.SystemAdmin: {
+        return 'SystemAdmin';
+      }
+      case PositionRole.FullStack: {
+        return 'FullStack';
+      }
+      default: {
+        return '';
+      }
+    }
   };
 
-  return <Types />;
+  return (
+    <UserLeaderboard>
+      {modalIsOpen && <DetailsPopUp setModalIsOpen={setModalIsOpen} recruit={recruit} />}
+      <LeaderboardRole>{role(recruit)}</LeaderboardRole>
+      <LeaderboardName>
+        {screen.width > 850 && <UserImg src={recruit.user.avatar} />}
+        {recruit.user.name}
+      </LeaderboardName>
+      <LeaderboardGender>{recruit.gender == null ? 'N/A' : recruit.gender === 0 ? 'Male' : 'Female'}</LeaderboardGender>
+      <LeaderboardScore>{recruit.totalScore}</LeaderboardScore>
+      <LeaderboardAction>
+        <DetailsButton src={detailsImg} onClick={handleOpenPopUp} />
+        <UserButton src={userImg} onClick={handleOpenDetails} />
+      </LeaderboardAction>
+    </UserLeaderboard>
+  );
 };
 
 export default LeaderboardElement;

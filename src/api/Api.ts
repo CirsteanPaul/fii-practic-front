@@ -6,12 +6,12 @@ import { tokenAuthSelector } from '../store/selectors/auth-selectors';
 // eslint-disable-next-line import/no-mutable-exports
 let instance: Axios = null;
 
-const localhostApiUrl = 'https://localhost:7240/api';
-// const productionApiUrl = 'https://hackaton-server.azurewebsites.net/api';
+// const localhostApiUrl = 'https://localhost:7240/api';
+const productionApiUrl = 'https://hackaton-server.azurewebsites.net/api';
 
 export const initApi = () => {
   instance = axios.create({
-    baseURL: localhostApiUrl,
+    baseURL: productionApiUrl,
   });
 
   instance.interceptors.request.use(config => {

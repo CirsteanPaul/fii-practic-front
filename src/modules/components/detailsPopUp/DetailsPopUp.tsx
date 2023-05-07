@@ -21,19 +21,42 @@ import {
   UserDetails,
   UserName,
 } from './styles';
-import { chart } from './constants';
+import IRecruitResponse from '../../../types/responses/IRecruitResponse';
+import { PositionRole } from '../leaderboard/LeaderboardElement';
+import { chartDetails } from './constants';
 
 interface Props {
   setModalIsOpen: (a: any) => void;
+  recruit: IRecruitResponse;
 }
 
-const DetailsPopUp = ({ setModalIsOpen }: Props) => {
+const DetailsPopUp = ({ setModalIsOpen, recruit }: Props) => {
   const handleStopPropagation = (event: any) => {
     event.stopPropagation();
   };
 
-  const chartTypes: string[] = ['coding', 'psychology', 'calm', 'assertive', 'agreeable'];
-  const chartScores: number[] = [10, 55, 22, 90, 100];
+  const chart: chartDetails[] = [
+    {
+      score: recruit.codingScore,
+      title: 'coding',
+    },
+    {
+      score: recruit.psychologyScore,
+      title: 'psychology',
+    },
+    {
+      score: recruit.calmScore,
+      title: 'calm',
+    },
+    {
+      score: recruit.assertiveScore,
+      title: 'assertive',
+    },
+    {
+      score: recruit.agreeableScore,
+      title: 'agreeable',
+    },
+  ];
 
   // eslint-disable-next-line react/no-unstable-nested-components
   const Charts = () => (
@@ -45,11 +68,34 @@ const DetailsPopUp = ({ setModalIsOpen }: Props) => {
             <ChartHeight style={{ height: `calc(${chartElement.score * 1.8}px)` }} />
           </ChartColumn>
           <div style={{ paddingTop: '10px' }}>{chartElement.title}</div>
-          <div>{chartElement.score}%</div>
+          <div>{chartElement.score ?? 0}%</div>
         </ChartElement>
       ))}
     </ChartsFull>
   );
+
+  const role = (currentRecruit: IRecruitResponse): string => {
+    switch (currentRecruit.user.positionRole) {
+      case PositionRole.FrontEnd: {
+        return 'FrontEnd';
+      }
+      case PositionRole.BackEnd: {
+        return 'BackEnd';
+      }
+      case PositionRole.DevOps: {
+        return 'DevOps';
+      }
+      case PositionRole.SystemAdmin: {
+        return 'SystemAdmin';
+      }
+      case PositionRole.FullStack: {
+        return 'FullStack';
+      }
+      default: {
+        return '';
+      }
+    }
+  };
 
   return (
     <DetailsPop
@@ -61,19 +107,16 @@ const DetailsPopUp = ({ setModalIsOpen }: Props) => {
         <LeftPop>
           <TopOfLeftPop>
             <UserDetails>
-              <ProfilePicture src={null} />
-              <UserName>Nume</UserName>
+              <ProfilePicture src={recruit.user.avatar} />
+              <UserName>{recruit.user.name}</UserName>
             </UserDetails>
             <Position>
               <PositionTitle>Position</PositionTitle>
-              <PositionText>Head of S</PositionText>
+              <PositionText>{role(recruit)}</PositionText>
             </Position>
             <Details>
               <DetailsTitle>Details</DetailsTitle>
-              <DetailsText>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus blanditiis labore culpa deleniti esse error molestiae mollitia possimus optio quasi delectus in
-                adipisci, expedita quae illum eius nesciunt autem excepturi!
-              </DetailsText>
+              <DetailsText>{recruit.user.description}</DetailsText>
             </Details>
           </TopOfLeftPop>
           <HireButton>Hire</HireButton>
