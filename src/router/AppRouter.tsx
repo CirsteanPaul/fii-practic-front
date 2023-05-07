@@ -15,6 +15,7 @@ import './styles.css';
 import headerLogo from './header_logo.png';
 import Leaderboard from '../modules/components/leaderboard';
 import CreateCv from '../modules/create-cv';
+import Question from '../modules/components/question';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -47,6 +48,7 @@ const AppRouter = () => {
             <Routes>
               <Route index element={<Home />} />
               <Route path="leaderboard" element={<Leaderboard />} />
+              <Route path="question" element={<Question />} />
               <Route path="cv/create" element={<CreateCv />} />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
@@ -62,6 +64,7 @@ const AppRouter = () => {
         <Routes>
           <Route index element={<Home />} />
           <Route path="leaderboard" element={<Leaderboard />} />
+          <Route path="question" element={<Question />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </ColumnContainer>
