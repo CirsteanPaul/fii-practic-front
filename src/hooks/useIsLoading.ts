@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { isLoadingAuthSelector } from '../store/selectors/auth-selectors';
 import { setIsLoadingAction } from '../store/slices/appSlice';
 import { useAppDispatch, useAppSelector } from './store-hooks';
+import { isRecruitLoadingSelector } from '../store/selectors/recruit-selectors';
 
 /**
  * This hook will change the state in appStateSlice
@@ -11,11 +12,12 @@ import { useAppDispatch, useAppSelector } from './store-hooks';
 const useIsLoading = (): void => {
   const dispatch = useAppDispatch();
 
+  const recruitLoading = useAppSelector(isRecruitLoadingSelector);
   const isAuthLoading = useAppSelector(isLoadingAuthSelector); // a selector should be added
 
   const isStateLoading = useMemo(() => {
-    return isAuthLoading; // here should be added
-  }, [isAuthLoading]); // here should be added
+    return isAuthLoading || recruitLoading; // here should be added
+  }, [isAuthLoading, recruitLoading]); // here should be added
 
   useEffect(() => {
     if (isStateLoading) {
