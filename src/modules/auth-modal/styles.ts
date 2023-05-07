@@ -1,7 +1,7 @@
 import styled from '../../theme';
 
 export const AuthModalContainer = styled.div`
-  z-index: 10;
+  z-index: 100;
   position: fixed;
   top: 50%;
   bottom: 50%;
@@ -43,6 +43,7 @@ export const SideDesignContainer = styled.div`
   padding: 40px;
 
   h1 {
+    font-family: 'Inter Bold';
     font-size: ${props => props.theme.fontSize.large};
     color: ${props => props.theme.colors.white};
     text-justify: start;

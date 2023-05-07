@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { StatusDoneButton } from '../../modules/components/leaderboard/styles';
 import IUserState from '../../types/user/IUserState';
 import {
   setAvatarUserAction,

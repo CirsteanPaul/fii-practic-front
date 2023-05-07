@@ -64,7 +64,6 @@ export const SideNavbarLink = styled(Router.Link)`
 
 export const SideNavbarFooter = styled.div`
   display: flex;
-  position: relative;
   justify-self: center;
   align-items: center;
   margin-bottom: 80px;

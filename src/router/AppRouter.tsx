@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NotFound from '../modules/not-found';
 import AppLoaderOverlay from '../components/app-loader-overlay';
@@ -9,7 +10,13 @@ import SideNavbar from '../components/side-navbar';
 import { ColumnContainer, HeaderLogoMobile, HeaderMobileMenu, InsideLink, RowContainer } from './styles';
 import TopNavBar from '../components/top-navbar';
 import { useAppDispatch, useAppSelector } from '../hooks/store-hooks';
-import { appWidthSelector, isModalOpenAppStateSelector } from '../store/selectors/app-selectors';
+import {
+  appWidthSelector,
+  isLoginModalOpenAppStateSelector,
+  isModalOpenAppStateSelector,
+  isRegisterModalOpenAppStateSelector,
+  isRolesModalOpenAppStateSelector,
+} from '../store/selectors/app-selectors';
 import { setModalOpenAction } from '../store/slices/appSlice';
 import './styles.css';
 import headerLogo from './header_logo.png';
@@ -19,9 +26,8 @@ import { loginAuthActionAsync } from '../store/actions/auth-actions';
 import { idUserSelector, linkedinUserSelector, nameUserSelector, usernameUserSelector } from '../store/selectors/user-selector';
 import { getUserActionAsync } from '../store/actions/user-actions';
 import { tokenAuthSelector } from '../store/selectors/auth-selectors';
-// eslint-disable-next-line import/order
-import { useEffect } from 'react';
 import CreateCv from '../modules/create-cv';
+import AuthModal from '../modules/auth-modal';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -31,6 +37,12 @@ const AppRouter = () => {
   const width = useAppSelector(appWidthSelector);
   const isOpen = useAppSelector(isModalOpenAppStateSelector);
   const token = useAppSelector(tokenAuthSelector);
+
+  const isLoginOpen = useAppSelector(isLoginModalOpenAppStateSelector);
+  const isRegisterOpen = useAppSelector(isRegisterModalOpenAppStateSelector);
+  const isRolesOpen = useAppSelector(isRolesModalOpenAppStateSelector);
+
+  const isAuthModalOpen = isLoginOpen || isRegisterOpen || isRolesOpen;
 
   useEffect(() => {
     dispatch(getUserActionAsync());
@@ -54,6 +66,7 @@ const AppRouter = () => {
   if (width > 1000) {
     return (
       <BrowserRouter>
+        <AuthModal isOpen={isAuthModalOpen} />
         <AppLoaderOverlay />
         <RowContainer>
           <SideNavbar />
