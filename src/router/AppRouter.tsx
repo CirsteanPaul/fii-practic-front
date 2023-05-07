@@ -18,6 +18,7 @@ import { setModalOpenAction } from '../store/slices/appSlice';
 import './styles.css';
 import Leaderboard from '../modules/components/leaderboard';
 import CreateCv from '../modules/create-cv';
+import Question from '../modules/components/question';
 import AuthModal from '../modules/auth-modal';
 import MobileHeader from '../components/mobile-header';
 
@@ -57,6 +58,7 @@ const AppRouter = () => {
             <Routes>
               <Route index element={<Home />} />
               <Route path="leaderboard" element={<Leaderboard />} />
+              <Route path="question" element={<Question />} />
               <Route path="cv/create" element={<CreateCv />} />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
@@ -73,6 +75,7 @@ const AppRouter = () => {
         <Routes>
           <Route index element={<Home />} />
           <Route path="leaderboard" element={<Leaderboard />} />
+          <Route path="question" element={<Question />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </ColumnContainer>
