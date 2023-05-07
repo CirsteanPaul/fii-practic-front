@@ -26,6 +26,7 @@ export const QuestionContainer = styled.div`
 export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 75%;
 `;
 
 export const QuestionPart = styled.div`
@@ -143,7 +144,7 @@ export const ResponseText = styled.div`
 
 export const RightContainer = styled.div`
   height: 100%;
-  width: 100%;
+  width: 23%;
   background-color: ${props => props.theme.colors.white};
   border-radius: 15px;
 

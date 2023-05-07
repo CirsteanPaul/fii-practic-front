@@ -9,6 +9,34 @@ export const TopNavbarContainer = styled.div`
   justify-content: flex-end;
 `;
 
+export const TopNavBarLoginButton = styled.button`
+  font-family: ${props => props.theme.fonts.inter};
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  color: #8146ff;
+  outline: 0;
+  background-color: transparent;
+  border: 0;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const LogoutButton = styled.button`
+  font-family: ${props => props.theme.fonts.inter};
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  color: #8146ff;
+  outline: 0;
+  background-color: transparent;
+  border: 0;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export const TopNavBarMenu = styled.div`
   display: flex;
   flex-direction: row;

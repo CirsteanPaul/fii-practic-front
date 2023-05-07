@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLoaderOverlay from '../components/app-loader-overlay';
 import useModalIsOpen from '../hooks/useModallsOpen';
 import useEmitters from '../hooks/useEmitters';
@@ -58,7 +58,7 @@ const AppRouter = () => {
             <Routes>
               <Route index element={<Home />} />
               <Route path="leaderboard" element={<Leaderboard />} />
-              <Route path="question" element={<Question />} />
+              <Route path="game" element={<Question />} />
               <Route path="cv/create" element={<CreateCv />} />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>

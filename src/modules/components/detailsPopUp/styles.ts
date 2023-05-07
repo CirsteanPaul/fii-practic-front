@@ -1,6 +1,8 @@
 import styled from '../../../theme/styled';
 
 export const DetailsPop = styled.main`
+  z-index: 100;
+
   position: fixed;
   top: 0;
   bottom: 0;

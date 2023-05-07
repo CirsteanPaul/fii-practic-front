@@ -9,7 +9,9 @@ export const SideNavbarContainer = styled.div`
   flex-direction: column;
   padding-top: 25px;
   padding-left: 40px;
-  max-width: 400px;
+  width: 300px;
+  position: fixed;
+  background-color: ${props => props.theme.colors.white};
 `;
 
 export const SideNavbarLogoContainer = styled.div`
@@ -70,5 +72,7 @@ export const SideNavbarFooter = styled.div`
   display: flex;
   justify-self: center;
   align-items: center;
-  margin-bottom: 80px;
+  flex-direction: column;
+  margin-bottom: 40px;
+  gap: 20px;
 `;
