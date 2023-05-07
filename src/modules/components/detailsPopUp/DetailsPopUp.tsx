@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import { setModalOpenAction } from '../../../store/slices/appSlice';
 import {
   ChartColumn,
@@ -65,7 +66,8 @@ const DetailsPopUp = ({ setModalIsOpen, recruit }: Props) => {
         <ChartElement>
           <ChartColumn>
             {/* <div>{chartElement.score}</div> */}
-            <ChartHeight style={{ height: `calc(${chartElement.score * 1.8}px)` }} />
+            {screen.width > 830 && <ChartHeight style={{ height: `calc(${chartElement.score * 1.8}px)` }} />}
+            {screen.width < 830 && <ChartHeight style={{ height: `calc(${chartElement.score * 0.9}px)` }} />}
           </ChartColumn>
           <div style={{ paddingTop: '10px' }}>{chartElement.title}</div>
           <div>{chartElement.score ?? 0}%</div>

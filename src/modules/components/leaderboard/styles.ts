@@ -29,6 +29,7 @@ export const LeaderboardContainer = styled.div`
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 
