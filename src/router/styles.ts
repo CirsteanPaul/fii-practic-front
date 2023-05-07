@@ -15,8 +15,8 @@ export const ColumnContainer = styled.div`
   padding-left: 300px;
   @media (max-width: 1000px) {
     padding: 0px;
-    gap: 40px;
     width: 100%;
+    gap: 10px;
     height: 100%;
     justify-content: center;
     align-items: center;

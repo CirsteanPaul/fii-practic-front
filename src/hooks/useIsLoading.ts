@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { isLoadingAuthSelector } from '../store/selectors/auth-selectors';
+import { loadingUserSelector } from '../store/selectors/user-selector';
 import { setIsLoadingAction } from '../store/slices/appSlice';
 import { useAppDispatch, useAppSelector } from './store-hooks';
 import { isRecruitLoadingSelector } from '../store/selectors/recruit-selectors';
@@ -16,10 +17,11 @@ const useIsLoading = (): void => {
   const recruitLoading = useAppSelector(isRecruitLoadingSelector);
   const questionLoading = useAppSelector(isGameLoadingSelector);
   const isAuthLoading = useAppSelector(isLoadingAuthSelector); // a selector should be added
-
+  const isUserLoading = useAppSelector(loadingUserSelector);
+  console.log(isUserLoading);
   const isStateLoading = useMemo(() => {
-    return isAuthLoading || recruitLoading || questionLoading; // here should be added
-  }, [isAuthLoading, recruitLoading, questionLoading]); // here should be added
+    return isAuthLoading || recruitLoading || questionLoading || isUserLoading; // here should be added
+  }, [isAuthLoading, recruitLoading, questionLoading, isUserLoading]); // here should be added
 
   useEffect(() => {
     if (isStateLoading) {

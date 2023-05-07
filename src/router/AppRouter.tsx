@@ -18,6 +18,7 @@ import { setModalOpenAction } from '../store/slices/appSlice';
 import './styles.css';
 import Leaderboard from '../modules/components/leaderboard';
 import CreateCv from '../modules/create-cv';
+import Settings from '../modules/settings';
 import Question from '../modules/components/question';
 import AuthModal from '../modules/auth-modal';
 import MobileHeader from '../components/mobile-header';
@@ -46,7 +47,7 @@ const AppRouter = () => {
     );
   };
 
-  if (width > 1000) {
+  if (width > 1100) {
     return (
       <BrowserRouter>
         <AuthModal isOpen={isAuthModalOpen} />
@@ -60,6 +61,7 @@ const AppRouter = () => {
               <Route path="leaderboard" element={<Leaderboard />} />
               <Route path="game" element={<Question />} />
               <Route path="cv/create" element={<CreateCv />} />
+              <Route path="settings" element={<Settings />} />
               {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
           </ColumnContainer>
@@ -75,6 +77,8 @@ const AppRouter = () => {
         <Routes>
           <Route index element={<Home />} />
           <Route path="leaderboard" element={<Leaderboard />} />
+          <Route path="cv/create" element={<CreateCv />} />
+          <Route path="settings" element={<Settings />} />
           <Route path="question" element={<Question />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>

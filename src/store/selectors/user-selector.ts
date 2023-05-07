@@ -1,4 +1,5 @@
 import { RootState } from '..';
+import IUserState from '../../types/user/IUserState';
 
 export const idUserSelector = (state: RootState): number => state.user.id;
 export const usernameUserSelector = (state: RootState): string => state.user.username;
@@ -10,3 +11,5 @@ export const positionRoleUserSelector = (state: RootState): number => state.user
 export const descriptionUserSelector = (state: RootState): string => state.user.description;
 export const emailUserSelector = (state: RootState): string => state.user.email;
 export const avatarUserSelector = (state: RootState): string => state.user.avatar;
+export const loadingUserSelector = (state: RootState): boolean => state.user.loading;
+export const userUserSelector = (state: RootState): IUserState => state.user;

@@ -7,6 +7,7 @@ import {
   setFacebookUserAction,
   setIdUserAction,
   setLinkedinUserAction,
+  setLoadingUserAction,
   setNameUserAction,
   setPositionRoleUserAction,
   setRoleUserAction,
@@ -24,6 +25,7 @@ const initialState: IUserState = {
   description: null,
   email: null,
   avatar: null,
+  loading: false,
 };
 
 const userReducer = createReducer(initialState, builder =>
@@ -37,7 +39,8 @@ const userReducer = createReducer(initialState, builder =>
     .addCase(setPositionRoleUserAction, (state, action) => ({ ...state, position: action.payload }))
     .addCase(setDescriptionUserAction, (state, action) => ({ ...state, description: action.payload }))
     .addCase(setEmailUserAction, (state, action) => ({ ...state, email: action.payload }))
-    .addCase(setAvatarUserAction, (state, action) => ({ ...state, avatar: action.payload })),
+    .addCase(setAvatarUserAction, (state, action) => ({ ...state, avatar: action.payload }))
+    .addCase(setLoadingUserAction, (state, action) => ({ ...state, loading: action.payload })),
 );
 
 export default userReducer;
