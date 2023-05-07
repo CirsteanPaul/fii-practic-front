@@ -4,7 +4,7 @@ import { loginPostRequest, registerPostRequest } from '../../api/requests/auth-r
 import ILoginPostRequest from '../../types/auth/ILoginPostRequest';
 import { RootState } from '..';
 import { setLoadingAuthAction, setLoginErrorAuthAction, setStateAuthAction, setTokenAuthAction } from './auth-sync-actionts';
-import { AUTH__LOGIN, AUTH__REGISTER } from '../constants';
+import { AUTH__LOGIN, AUTH__LOGOUT, AUTH__REGISTER } from '../constants';
 import IRegisterPostRequest from '../../types/auth/IRegisterPostRequest';
 import alertService from '../../services/alert-service';
 import { LOGIN_FAILED__TITLE, REGISTER_FAILED__TITLE } from '../../services/alert-service/alert-errors';
@@ -57,7 +57,7 @@ export const registerAuthActionAsync = createAsyncThunk<boolean, IRegisterPostRe
   return isValid;
 });
 
-export const logoutActionAsync = createAsyncThunk<void, never, { state: RootState }>('soeth', async (__, thunkApi) => {
+export const logoutActionAsync = createAsyncThunk<void, never, { state: RootState }>(AUTH__LOGOUT, async (__, thunkApi) => {
   thunkApi.dispatch(setStateAuthAction(false));
   thunkApi.dispatch(setTokenAuthAction(''));
   clearItem(TOKEN_AUTH_LOGIN);

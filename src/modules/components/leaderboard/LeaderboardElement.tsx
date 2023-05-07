@@ -1,13 +1,20 @@
 import { Navigate, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DetailsButton, LeaderboardAction, LeaderboardGender, LeaderboardName, LeaderboardRole, LeaderboardScore, UserButton, UserImg, UserLeaderboard } from './styles';
 import detailsImg from './details.png';
 import userImg from './user.png';
 import DetailsPopUp from '../detailsPopUp';
+import { useAppDispatch } from '../../../hooks/store-hooks';
+import { fetchLeaderboardAsyncAction } from '../../../store/actions/recruit-actions';
 
 const LeaderboardElement = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchLeaderboardAsyncAction());
+  }, [dispatch]);
 
   const handleOpenDetails = () => {
     navigate('details');
