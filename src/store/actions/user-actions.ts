@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from '..';
 import { userPostRequest, userGetRequest } from '../../api/requests/user-requests';
 import alertService from '../../services/alert-service';
-import { LOGIN_FAILED__TITLE, USER_GET_FAILED__TITLE, USER_POST_FAILED__TITLE } from '../../services/alert-service/alert-errors';
+import { USER_GET_FAILED__TITLE, USER_POST_FAILED__TITLE } from '../../services/alert-service/alert-errors';
 import ApiException from '../../types/IErrorException';
 import IUserState from '../../types/user/IUserState';
 import { USER_GET, USER_POST } from '../constants';
@@ -19,7 +19,7 @@ import {
   setUsernameUserAction,
 } from './user-sync-actions';
 
-export const postUserActionAsync = createAsyncThunk<void, IUserState, { state: RootState }>(USER_POST, async (data, thunkApi) => {
+export const postUserActionAsync = createAsyncThunk<void, IUserState, { state: RootState }>(USER_POST, async data => {
   try {
     await userPostRequest(data);
   } catch (err) {
@@ -32,7 +32,6 @@ export const postUserActionAsync = createAsyncThunk<void, IUserState, { state: R
 export const getUserActionAsync = createAsyncThunk<void, never, { state: RootState }>(USER_GET, async (__, thunkApi) => {
   try {
     const response = await userGetRequest();
-    console.log(response);
     thunkApi.dispatch(setIdUserAction(response.id));
     thunkApi.dispatch(setUsernameUserAction(response.username));
     thunkApi.dispatch(setRoleUserAction(response.role));

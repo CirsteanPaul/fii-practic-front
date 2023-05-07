@@ -19,6 +19,10 @@ export const SideNavbarLogoContainer = styled.div`
   flex-direction: row;
   gap: 20px;
   margin-bottom: 60px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const SideNavbarLogo = styled.img``;

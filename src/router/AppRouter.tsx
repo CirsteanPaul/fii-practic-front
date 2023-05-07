@@ -1,8 +1,5 @@
-import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NotFound from '../modules/not-found';
 import AppLoaderOverlay from '../components/app-loader-overlay';
-import Footer from '../components/footer';
 import useModalIsOpen from '../hooks/useModallsOpen';
 import useEmitters from '../hooks/useEmitters';
 import Home from '../modules/home';
@@ -21,11 +18,6 @@ import { setModalOpenAction } from '../store/slices/appSlice';
 import './styles.css';
 import headerLogo from './header_logo.png';
 import Leaderboard from '../modules/components/leaderboard';
-import ILoginPostRequest from '../types/auth/ILoginPostRequest';
-import { loginAuthActionAsync } from '../store/actions/auth-actions';
-import { idUserSelector, linkedinUserSelector, nameUserSelector, usernameUserSelector } from '../store/selectors/user-selector';
-import { getUserActionAsync } from '../store/actions/user-actions';
-import { tokenAuthSelector } from '../store/selectors/auth-selectors';
 import CreateCv from '../modules/create-cv';
 import AuthModal from '../modules/auth-modal';
 
@@ -36,20 +28,12 @@ const AppRouter = () => {
   const dispatch = useAppDispatch();
   const width = useAppSelector(appWidthSelector);
   const isOpen = useAppSelector(isModalOpenAppStateSelector);
-  const token = useAppSelector(tokenAuthSelector);
 
   const isLoginOpen = useAppSelector(isLoginModalOpenAppStateSelector);
   const isRegisterOpen = useAppSelector(isRegisterModalOpenAppStateSelector);
   const isRolesOpen = useAppSelector(isRolesModalOpenAppStateSelector);
 
   const isAuthModalOpen = isLoginOpen || isRegisterOpen || isRolesOpen;
-
-  useEffect(() => {
-    dispatch(getUserActionAsync());
-  }, [dispatch]);
-  const userUsername = useAppSelector(usernameUserSelector);
-  const userName = useAppSelector(linkedinUserSelector);
-  console.log(userName);
 
   const buildButton = (): JSX.Element => {
     return (
