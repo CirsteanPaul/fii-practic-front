@@ -10,6 +10,10 @@ export const RegisterFormContainer = styled.div<{ isOpen: boolean }>`
   border-radius: 14px 0 0 14px;
   width: 740px;
 
+  @media (max-width: 1193px) {
+    width: 100%;
+  }
+
   & button[type='button'] {
     font-family: 'Inter Bold';
     background: none;

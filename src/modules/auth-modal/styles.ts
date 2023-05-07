@@ -13,6 +13,10 @@ export const AuthModalContainer = styled.div`
   display: flex;
   flex-direction: row;
   background: linear-gradient(223.58deg, #8146ff 31.18%, #b3cdcd 101.35%);
+
+  @media (max-width: 1193px) {
+    width: 90vw;
+  }
 `;
 
 export const AuthModalBackdrop = styled.div<{ isOpen: boolean }>`
@@ -48,5 +52,9 @@ export const SideDesignContainer = styled.div`
     font-size: ${props => props.theme.fontSize.large};
     color: ${props => props.theme.colors.white};
     text-justify: start;
+  }
+
+  @media (max-width: 1193px) {
+    display: none;
   }
 `;

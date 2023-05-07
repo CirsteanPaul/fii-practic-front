@@ -11,11 +11,19 @@ export const RoleSelectorContainer = styled.div<{ isOpen: boolean }>`
   border-radius: 14px 0 0 14px;
   width: 740px;
 
+  @media (max-width: 1193px) {
+    width: 100%;
+  }
+
   h1 {
     font-family: 'Inter Bold';
     font-size: ${props => props.theme.fontSize.large};
     margin-bottom: 1rem;
     color: ${props => props.theme.colors.formsTitleGray};
+
+    @media (max-width: 419px) {
+      font-size: ${props => props.theme.fontSize.medium};
+    }
   }
 
   p {
@@ -39,6 +47,10 @@ export const SelectionButtons = styled.button`
   &:hover {
     background-color: ${props => props.theme.colors.hoverPurple};
     transition: background-color 0.2s ease;
+  }
+
+  @media (max-width: 721px) {
+    width: 100%;
   }
 `;
 

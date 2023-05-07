@@ -221,4 +221,11 @@ export const SignUpButton = styled.button`
 
   align-self: center;
   margin-top: 50px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.hoverPurple};
+    transition: background-color 0.2s ease;
+  }
 `;
