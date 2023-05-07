@@ -1,21 +1,26 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NotFound from '../modules/not-found';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import AppLoaderOverlay from '../components/app-loader-overlay';
-import Footer from '../components/footer';
 import useModalIsOpen from '../hooks/useModallsOpen';
 import useEmitters from '../hooks/useEmitters';
 import Home from '../modules/home';
 import SideNavbar from '../components/side-navbar';
-import { ColumnContainer, HeaderLogoMobile, HeaderMobileMenu, InsideLink, RowContainer } from './styles';
+import { ColumnContainer, RowContainer } from './styles';
 import TopNavBar from '../components/top-navbar';
 import { useAppDispatch, useAppSelector } from '../hooks/store-hooks';
-import { appWidthSelector, isModalOpenAppStateSelector } from '../store/selectors/app-selectors';
+import {
+  appWidthSelector,
+  isLoginModalOpenAppStateSelector,
+  isModalOpenAppStateSelector,
+  isRegisterModalOpenAppStateSelector,
+  isRolesModalOpenAppStateSelector,
+} from '../store/selectors/app-selectors';
 import { setModalOpenAction } from '../store/slices/appSlice';
 import './styles.css';
-import headerLogo from './header_logo.png';
 import Leaderboard from '../modules/components/leaderboard';
 import CreateCv from '../modules/create-cv';
 import Question from '../modules/components/question';
+import AuthModal from '../modules/auth-modal';
+import MobileHeader from '../components/mobile-header';
 
 const AppRouter = () => {
   useModalIsOpen();
@@ -23,8 +28,12 @@ const AppRouter = () => {
 
   const dispatch = useAppDispatch();
   const width = useAppSelector(appWidthSelector);
+  const isLoginOpen = useAppSelector(isLoginModalOpenAppStateSelector);
   const isOpen = useAppSelector(isModalOpenAppStateSelector);
-  console.log(width);
+  const isRegisterOpen = useAppSelector(isRegisterModalOpenAppStateSelector);
+  const isRolesOpen = useAppSelector(isRolesModalOpenAppStateSelector);
+  const isAuthModalOpen = isLoginOpen || isRegisterOpen || isRolesOpen;
+
   const buildButton = (): JSX.Element => {
     return (
       <button style={{ zIndex: 50 }} type="button" onClick={() => dispatch(setModalOpenAction(!isOpen))} className={`${isOpen ? 'active' : ''} burger`}>
@@ -40,6 +49,7 @@ const AppRouter = () => {
   if (width > 1000) {
     return (
       <BrowserRouter>
+        <AuthModal isOpen={isAuthModalOpen} />
         <AppLoaderOverlay />
         <RowContainer>
           <SideNavbar />
@@ -59,6 +69,7 @@ const AppRouter = () => {
   }
   return (
     <BrowserRouter>
+      <AuthModal isOpen={isAuthModalOpen} />
       <ColumnContainer>
         {!isOpen && buildButton()}
         <Routes>
@@ -68,28 +79,7 @@ const AppRouter = () => {
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </ColumnContainer>
-      <HeaderMobileMenu isOpen={isOpen}>
-        <div style={{ position: 'absolute', top: '20px', right: '30px' }}>{buildButton()}</div>
-        <HeaderLogoMobile isOpen={isOpen} src={headerLogo} />
-        <InsideLink isOpen={isOpen} onClick={() => dispatch(setModalOpenAction(false))} to="dashboard">
-          Dashboard
-        </InsideLink>
-        <InsideLink isOpen={isOpen} onClick={() => dispatch(setModalOpenAction(false))} to="appointment">
-          Appointment
-        </InsideLink>
-        <InsideLink isOpen={isOpen} onClick={() => dispatch(setModalOpenAction(false))} to="doctors">
-          Doctors
-        </InsideLink>
-        <InsideLink isOpen={isOpen} onClick={() => dispatch(setModalOpenAction(false))} to="patients">
-          Patients
-        </InsideLink>
-        <InsideLink isOpen={isOpen} onClick={() => dispatch(setModalOpenAction(false))} to="chats">
-          Chats
-        </InsideLink>
-        <InsideLink isOpen={isOpen} onClick={() => dispatch(setModalOpenAction(false))} to="settings">
-          Settings
-        </InsideLink>
-      </HeaderMobileMenu>
+      <MobileHeader />
       <AppLoaderOverlay />
     </BrowserRouter>
   );
