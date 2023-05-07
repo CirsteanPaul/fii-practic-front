@@ -31,7 +31,7 @@ export const HeaderMobileMenu = styled.nav<{ isOpen?: boolean }>`
   display: flex;
   height: 100%;
   overflow: hidden;
-  background-color: black;
+  background-color: ${props => props.theme.colors.backgroundGray};
   flex-grow: 1;
   flex-direction: column;
   gap: 40px;
@@ -77,7 +77,7 @@ export const InsideLink = styled(Router.Link).attrs(props => ({
   background-color: transparent;
   font-size: ${props => props.theme.fontSize.small};
   font-family: ${props => props.theme.fonts.inter};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.logoPurple};
   text-decoration: none;
   &:hover {
     cursor: pointer;

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import LeaderboardElement from './LeaderboardElement';
 import {
   LeaderboardPage,
@@ -24,15 +25,15 @@ const Types = () => (
 
 const Leaderboard = (): JSX.Element => (
   <LeaderboardPage>
+    <LeaderboardTitle>Leaderboard</LeaderboardTitle>
     <LeaderboardContainer>
-      <LeaderboardTitle>Leaderboard</LeaderboardTitle>
-      <Types />
+      {screen.width > 850 && <Types />}
       <LeaderboardElement />
-      <Delimitator />
+      {screen.width > 850 && <Delimitator />}
       <LeaderboardElement />
-      <Delimitator />
+      {screen.width > 850 && <Delimitator />}
       <LeaderboardElement />
-      <Delimitator />
+      {screen.width > 850 && <Delimitator />}
     </LeaderboardContainer>
   </LeaderboardPage>
 );
