@@ -9,7 +9,7 @@ import IRegisterPostRequest from '../../types/auth/IRegisterPostRequest';
 import alertService from '../../services/alert-service';
 import { LOGIN_FAILED__TITLE, REGISTER_FAILED__TITLE } from '../../services/alert-service/alert-errors';
 import ApiException from '../../types/IErrorException';
-import { setItem } from '../../services/storage-service';
+import { setItem, clearItem } from '../../services/storage-service';
 import { TOKEN_AUTH_LOGIN } from '../../services/auth-service';
 
 export const loginAuthActionAsync = createAsyncThunk<boolean, ILoginPostRequest, { state: RootState }>(AUTH__LOGIN, async (data, thunkApi) => {
@@ -55,4 +55,10 @@ export const registerAuthActionAsync = createAsyncThunk<boolean, IRegisterPostRe
     thunkApi.dispatch(setLoadingAuthAction(false));
   }
   return isValid;
+});
+
+export const logoutActionAsync = createAsyncThunk<void, never, { state: RootState }>('soeth', async (__, thunkApi) => {
+  thunkApi.dispatch(setStateAuthAction(false));
+  thunkApi.dispatch(setTokenAuthAction(''));
+  clearItem(TOKEN_AUTH_LOGIN);
 });
