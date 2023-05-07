@@ -3,6 +3,7 @@ import appointmentlogo from './assets/appointement_logo.png';
 import doctorslogo from './assets/doctor_logo.png';
 import patientslogo from './assets/patients_logo.png';
 import chatslogo from './assets/chats_logo.png';
+import fiiLogo from './assets/fii_logo.png';
 
 export interface SideNavbarLinkInterface {
   img: string;
@@ -17,6 +18,10 @@ export const SideNavbarLinks: SideNavbarLinkInterface[] = [
   {
     img: appointmentlogo,
     name: 'appointment',
+  },
+  {
+    img: fiiLogo,
+    name: 'game',
   },
   {
     img: doctorslogo,
