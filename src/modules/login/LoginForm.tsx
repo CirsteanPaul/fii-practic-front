@@ -20,20 +20,23 @@ const LoginForm = ({ isOpen, setRole }: IProps): JSX.Element => {
   const onUsernameChanged = (e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value);
   const onPasswordChanged = (e: React.ChangeEvent<HTMLInputElement>) => setUserPassword(e.target.value);
 
-  const handleLogin = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    const loginData: ILoginPostRequest = {
-      username,
-      password: userPassword,
-    };
-    dispatch(loginAuthActionAsync(loginData));
-  };
-
   const handleClose = () => {
     setUsername('');
     setUserPassword('');
     setRole(0);
     dispatch(setLoginModalOpenAction(false));
+  };
+
+  const handleLogin = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const loginData: ILoginPostRequest = {
+      username,
+      password: userPassword,
+    };
+    const isValid = await dispatch(loginAuthActionAsync(loginData));
+    if (isValid.payload) {
+      handleClose();
+    }
   };
 
   const handleNavigateToRegister = () => {
