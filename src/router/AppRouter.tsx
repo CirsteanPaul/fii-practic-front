@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLoaderOverlay from '../components/app-loader-overlay';
 import useModalIsOpen from '../hooks/useModallsOpen';
 import useEmitters from '../hooks/useEmitters';

@@ -12,8 +12,9 @@ import ApiException from '../../types/IErrorException';
 import { setItem } from '../../services/storage-service';
 import { TOKEN_AUTH_LOGIN } from '../../services/auth-service';
 
-export const loginAuthActionAsync = createAsyncThunk<void, ILoginPostRequest, { state: RootState }>(AUTH__LOGIN, async (data, thunkApi) => {
+export const loginAuthActionAsync = createAsyncThunk<boolean, ILoginPostRequest, { state: RootState }>(AUTH__LOGIN, async (data, thunkApi) => {
   thunkApi.dispatch(setLoginErrorAuthAction(false));
+  let isOk = false;
   thunkApi.dispatch(setLoadingAuthAction(true));
   try {
     const response = await loginPostRequest(data);
@@ -22,6 +23,7 @@ export const loginAuthActionAsync = createAsyncThunk<void, ILoginPostRequest, { 
       setItem(TOKEN_AUTH_LOGIN, response.token);
       thunkApi.dispatch(setStateAuthAction(true));
       alertService.successAlert({ title: 'Login successfully', message: null });
+      isOk = true;
     } else {
       alertService.errorAlert({ title: LOGIN_FAILED__TITLE, message: 'Error from session, please reload!' });
       thunkApi.dispatch(setLoginErrorAuthAction(true));
@@ -34,6 +36,7 @@ export const loginAuthActionAsync = createAsyncThunk<void, ILoginPostRequest, { 
   } finally {
     thunkApi.dispatch(setLoadingAuthAction(false));
   }
+  return isOk;
 });
 
 export const registerAuthActionAsync = createAsyncThunk<boolean, IRegisterPostRequest, { state: RootState }>(AUTH__REGISTER, async (data, thunkApi) => {
