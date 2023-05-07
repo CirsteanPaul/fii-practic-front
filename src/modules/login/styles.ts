@@ -10,7 +10,13 @@ export const LoginFormContainer = styled.div<{ isOpen: boolean }>`
   border-radius: 14px 0 0 14px;
   width: 740px;
 
+  @media (max-width: 1193px) {
+    width: 100%;
+    border-radius: none;
+  }
+
   & button[type='button'] {
+    font-family: 'Inter Bold';
     background: none;
     border: none;
     color: ${props => props.theme.colors.logoPurple};
@@ -21,6 +27,24 @@ export const LoginFormContainer = styled.div<{ isOpen: boolean }>`
 
   & button[type='button']:hover {
     color: ${props => props.theme.colors.hoverPurple};
+    transition: color 0.2s ease;
+  }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.2s ease;
+  }
+
+  img {
+    width: 25px;
   }
 `;
 
@@ -30,6 +54,7 @@ export const LoginFormStyled = styled.form`
   width: 80%;
 
   h1 {
+    font-family: 'Inter Bold';
     font-size: ${props => props.theme.fontSize.large};
     text-justify: start;
     margin-bottom: 1rem;
@@ -37,6 +62,7 @@ export const LoginFormStyled = styled.form`
   }
 
   & input {
+    font-family: 'Inter Bold';
     border: 2px solid ${props => props.theme.colors.borderGray};
     font-size: ${props => props.theme.fontSize.small};
     color: ${props => props.theme.colors.formsTextGray};
@@ -46,6 +72,7 @@ export const LoginFormStyled = styled.form`
   }
 
   & button[type='submit'] {
+    font-family: 'Inter Bold';
     border-radius: 5px;
     border: none;
     background-color: ${props => props.theme.colors.logoPurple};

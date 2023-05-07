@@ -1,6 +1,8 @@
 import styled from '../../../theme/styled';
 
 export const DetailsPop = styled.main`
+  z-index: 100;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +10,7 @@ export const DetailsPop = styled.main`
   width: 100vw;
   height: 100vh;
 
-  background-color: rgba(242, 242, 242, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 
   display: flex;
   align-items: center;

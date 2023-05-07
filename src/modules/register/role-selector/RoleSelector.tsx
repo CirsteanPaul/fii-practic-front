@@ -1,6 +1,7 @@
 import { useAppDispatch } from '../../../hooks/store-hooks';
 import { setRegisterModalOpenAction, setRolesModalOpenAction } from '../../../store/slices/appSlice';
-import { RoleSelectorContainer } from './styles';
+import { RoleSelectorContainer, CloseButton, SelectionButtons } from './styles';
+import xIcon from '../../auth-modal/resources/x-symbol.png';
 
 interface IProps {
   isOpen: boolean;
@@ -22,16 +23,24 @@ const RoleSelector = ({ isOpen, setRole }: IProps): JSX.Element => {
     dispatch(setRegisterModalOpenAction(true));
   };
 
+  const handleClose = () => {
+    setRole(0);
+    dispatch(setRolesModalOpenAction(false));
+  };
+
   return (
     <RoleSelectorContainer isOpen={isOpen}>
+      <CloseButton type="button" onClick={handleClose}>
+        <img src={xIcon} alt="" />
+      </CloseButton>
       <h1>Are you a company or an user?</h1>
-      <button type="button" onClick={handleCompany}>
+      <SelectionButtons type="button" onClick={handleCompany}>
         Company
-      </button>
+      </SelectionButtons>
       <p>- OR -</p>
-      <button type="button" onClick={handleUser}>
+      <SelectionButtons type="button" onClick={handleUser}>
         User
-      </button>
+      </SelectionButtons>
     </RoleSelectorContainer>
   );
 };

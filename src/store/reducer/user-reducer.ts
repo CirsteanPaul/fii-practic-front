@@ -25,7 +25,7 @@ const initialState: IUserState = {
   description: null,
   email: null,
   avatar: null,
-  loading: true,
+  loading: false,
 };
 
 const userReducer = createReducer(initialState, builder =>

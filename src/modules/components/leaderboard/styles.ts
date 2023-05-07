@@ -25,6 +25,11 @@ export const LeaderboardContainer = styled.div`
 
   width: 95%;
   /* height: 80vh; */
+  @media (max-width: 850px) {
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+  }
 `;
 
 export const LeaderboardTitle = styled.h2`
@@ -51,6 +56,10 @@ export const LeaderboardTypes = styled.div`
 export const LeaderboardRole = styled.div`
   width: 20%;
   font-family: ${props => props.theme.fonts.interRegular};
+  @media (max-width: 850px) {
+    width: auto;
+    padding-top: 10px;
+  }
 `;
 
 export const LeaderboardName = styled.div`
@@ -58,16 +67,25 @@ export const LeaderboardName = styled.div`
   width: 30%;
   display: flex;
   align-items: center;
+  @media (max-width: 850px) {
+    width: auto;
+  }
 `;
 
 export const LeaderboardGender = styled.div`
   width: 20%;
   font-family: ${props => props.theme.fonts.interRegular};
+  @media (max-width: 850px) {
+    width: auto;
+  }
 `;
 
 export const LeaderboardScore = styled.div`
   font-family: ${props => props.theme.fonts.interRegular};
   width: 20%;
+  @media (max-width: 850px) {
+    width: auto;
+  }
 `;
 
 export const LeaderboardAction = styled.div`
@@ -77,6 +95,9 @@ export const LeaderboardAction = styled.div`
 
   display: flex;
   gap: 10px;
+  @media (max-width: 850px) {
+    width: auto;
+  }
 `;
 
 export const Delimitator = styled.div`
@@ -86,6 +107,9 @@ export const Delimitator = styled.div`
   background-color: ${props => props.theme.colors.delimitatorGray};
 
   align-self: center;
+  @media (max-width: 850px) {
+    width: auto;
+  }
 `;
 
 export const UserLeaderboard = styled.div`
@@ -98,6 +122,18 @@ export const UserLeaderboard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media (max-width: 850px) {
+    flex-direction: column;
+    background-color: ${props => props.theme.colors.backgroundGray};
+    width: 180px;
+    height: auto;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+    gap: 15px;
+  }
 `;
 
 export const UserImg = styled.img`

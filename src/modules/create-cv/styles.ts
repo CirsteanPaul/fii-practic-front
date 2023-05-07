@@ -51,4 +51,9 @@ export const CvSubmitButton = styled.button`
   padding: 1rem;
   margin-top: 2rem;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.hoverPurple};
+    transition: background-color 0.2s ease;
+  }
 `;

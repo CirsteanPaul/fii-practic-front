@@ -9,7 +9,9 @@ export const SideNavbarContainer = styled.div`
   flex-direction: column;
   padding-top: 25px;
   padding-left: 40px;
-  max-width: 400px;
+  width: 300px;
+  position: fixed;
+  background-color: ${props => props.theme.colors.white};
 `;
 
 export const SideNavbarLogoContainer = styled.div`
@@ -19,6 +21,10 @@ export const SideNavbarLogoContainer = styled.div`
   flex-direction: row;
   gap: 20px;
   margin-bottom: 60px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const SideNavbarLogo = styled.img``;
@@ -64,8 +70,9 @@ export const SideNavbarLink = styled(Router.Link)`
 
 export const SideNavbarFooter = styled.div`
   display: flex;
-  position: relative;
   justify-self: center;
   align-items: center;
-  margin-bottom: 80px;
+  flex-direction: column;
+  margin-bottom: 40px;
+  gap: 20px;
 `;

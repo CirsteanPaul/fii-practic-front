@@ -16,8 +16,15 @@ import {
   SignUpButton,
   SubTitle,
 } from './styles';
+import { useAppDispatch } from '../../hooks/store-hooks';
+import { setRolesModalOpenAction } from '../../store/slices/appSlice';
 
 const Home = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const handleOpenSignUp = () => {
+    dispatch(setRolesModalOpenAction(true));
+  };
+
   return (
     <HomePage>
       <HomeContainer>
@@ -40,7 +47,7 @@ const Home = (): JSX.Element => {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </HowToPlayDescription>
         </HowToPlay>
-        <SignUpButton>+ Sign up</SignUpButton>
+        <SignUpButton onClick={handleOpenSignUp}>+ Sign up</SignUpButton>
       </HomeContainer>
     </HomePage>
   );

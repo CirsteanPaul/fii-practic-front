@@ -8,7 +8,6 @@ import {
   facebookUserSelector,
   idUserSelector,
   linkedinUserSelector,
-  loadingUserSelector,
   nameUserSelector,
   roleUserSelector,
   usernameUserSelector,
@@ -39,32 +38,6 @@ import {
 import IUserState from '../../types/user/IUserState';
 
 const Settings = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(getUserActionAsync());
-  }, [dispatch]);
-
-  enum Roles {
-    front = '1',
-    back = '2',
-    side = '3',
-  }
-
-  function getRoleNumber(role: number): string | undefined {
-    if (role === 1) return 'front';
-    if (role === 2) return 'back';
-    if (role === 3) return 'side';
-    return '';
-  }
-
-  function getRoleString(role: string): number | undefined {
-    if (role === 'front') return 1;
-    if (role === 'back') return 2;
-    if (role === 'side') return 3;
-    return 0;
-  }
-
-  const isLoading = useAppSelector(loadingUserSelector);
   const currentId = useAppSelector(idUserSelector);
   const currentAvatar = useAppSelector(avatarUserSelector);
   const currentUsername = useAppSelector(usernameUserSelector);
@@ -76,13 +49,29 @@ const Settings = (): JSX.Element => {
   const currentDescription = useAppSelector(descriptionUserSelector);
   const avatar = useAppSelector(avatarUserSelector);
   const pularole = useAppSelector(roleUserSelector);
-
   const [username, setUsername] = useState<string>(currentUsername);
   const [facebook, setFacebook] = useState<string>(currentFacebook);
   const [name, setName] = useState<string>(currentName);
   const [linkedin, setLinkedin] = useState<string>(currentlinkedin);
+  function getRoleNumber(role: number): string | undefined {
+    if (role === 1) return 'front';
+    if (role === 2) return 'back';
+    if (role === 3) return 'side';
+    return '';
+  }
+  function getRoleString(role: string): number | undefined {
+    if (role === 'front') return 1;
+    if (role === 'back') return 2;
+    if (role === 'side') return 3;
+    return 0;
+  }
+
   const [role, setPositionRole] = useState<string>(getRoleNumber(currentrole));
   const [email, setEmail] = useState<string>(currentemail);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getUserActionAsync());
+  }, [dispatch]);
 
   const finalData: IUserState = {
     id: currentId,
@@ -94,7 +83,7 @@ const Settings = (): JSX.Element => {
     description: currentDescription,
     email,
     avatar: currentAvatar,
-    loading: true,
+    loading: false,
     role: pularole,
   };
 
